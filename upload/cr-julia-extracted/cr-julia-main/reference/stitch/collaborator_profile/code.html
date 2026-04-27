@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Collaborator Profile | Magna Buyers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#c8e9e7",
+                        "secondary-container": "#f9dbb7",
+                        "inverse-surface": "#31302d",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#00201f",
+                        "tertiary-container": "#3b5857",
+                        "on-surface-variant": "#3f4948",
+                        "on-secondary-container": "#755f42",
+                        "surface-container-highest": "#e6e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00201f",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#b0eeeb",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#044f4e",
+                        "primary-fixed-dim": "#94d2cf",
+                        "primary-container": "#1a5c5a",
+                        "tertiary": "#234140",
+                        "surface-container-high": "#ebe8e3",
+                        "primary": "#004442",
+                        "outline-variant": "#bfc8c7",
+                        "on-surface": "#1c1c19",
+                        "inverse-primary": "#94d2cf",
+                        "secondary": "#705b3e",
+                        "on-tertiary-fixed-variant": "#2e4c4b",
+                        "on-primary-container": "#95d2cf",
+                        "outline": "#6f7978",
+                        "surface-dim": "#ddd9d5",
+                        "surface-variant": "#e6e2dd",
+                        "surface-container-low": "#f7f3ee",
+                        "surface-bright": "#fdf9f4",
+                        "inverse-on-surface": "#f4f0eb",
+                        "on-secondary-fixed-variant": "#574329",
+                        "surface-container": "#f1ede8",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9f4",
+                        "surface": "#fdf9f4",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#adcdcb",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#dfc29f",
+                        "tertiary-fixed-dim": "#adcdcb",
+                        "on-secondary-fixed": "#281903",
+                        "surface-tint": "#296866",
+                        "secondary-fixed": "#fcdeba",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "serif": ["Cormorant Garamond"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-notoserif { font-family: 'Noto Serif', serif; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky z-50 bg-[#FDF9F4] dark:bg-stone-950 border-b border-[#705B3E]/10 shadow-sm dark:shadow-none flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#1A5C5A] dark:text-[#2A8C8A] cursor-pointer">menu</span>
+<h1 class="font-notoserif text-[#1A5C5A] tracking-tight text-2xl font-serif italic text-[#1A5C5A] dark:text-[#F5F1EC]">The Editorial Estate</h1>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<nav class="flex gap-6">
+<a class="text-[#705B3E]/70 hover:bg-[#F5F1EC] px-3 py-1 transition-colors uppercase tracking-widest text-xs font-bold" href="#">Portfolio</a>
+<a class="text-[#1A5C5A] font-bold hover:bg-[#F5F1EC] px-3 py-1 transition-colors uppercase tracking-widest text-xs" href="#">Client Registry</a>
+<a class="text-[#705B3E]/70 hover:bg-[#F5F1EC] px-3 py-1 transition-colors uppercase tracking-widest text-xs font-bold" href="#">Market Insights</a>
+</nav>
+<div class="h-10 w-10 rounded-full overflow-hidden bg-surface-container">
+<img alt="Agent Profile" class="w-full h-full object-cover" data-alt="professional male real estate agent portrait with confident expression in a sharp charcoal suit against a minimal architectural background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9Hs5lXtLjE4v0mzt2DfOvIZQnBDlpS43SSd0aVIVQa8O-VLaTg0u7J2lGmvzaB84IyUsCRCf5WO6ojgfg1DL_XvCGqzYuzrh5O5I7XUt9vuu9PN5PBgRvuTlLqiFheP8GPLkRH9wrz8nCI5CmM_TPLDsvDW7Bu-J5gvL_tbQmnIJ9JhCQNHqRnqs8ZaXhgebt1HSFkBZkOLOCRTQ9n6_7bRgKZbw45oVBtibJ82VBT5JfURxNPTFtMs-tL5rkKZPWy9tIIV4HdoI"/>
+</div>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20 lg:flex lg:gap-20">
+<!-- Left Column: Profile Card (Fixed-ish style) -->
+<aside class="lg:w-1/3 mb-12 lg:mb-0">
+<div class="sticky top-32">
+<div class="mb-8">
+<span class="text-secondary font-serif italic text-xl">Collaborator Profile</span>
+<h2 class="text-5xl font-serif font-bold text-primary mt-2 leading-tight">L'Atelier Properties</h2>
+<p class="text-secondary tracking-[0.2em] uppercase text-xs mt-4">London • Mayfair District</p>
+</div>
+<div class="bg-surface-container-low p-8 border-l-2 border-secondary/20">
+<div class="flex items-center gap-1 mb-6">
+<span class="material-symbols-outlined text-[#D4B896]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#D4B896]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#D4B896]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#D4B896]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#D4B896]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-2 text-xs font-bold tracking-widest text-on-surface-variant uppercase">Elite Partner</span>
+</div>
+<div class="space-y-6">
+<div>
+<label class="font-serif text-sm italic text-secondary">Contact Person</label>
+<p class="text-on-surface font-semibold text-lg">Julian Vane-Tempest</p>
+<p class="text-on-surface-variant text-sm">Managing Director</p>
+</div>
+<div>
+<label class="font-serif text-sm italic text-secondary">Inquiries</label>
+<p class="text-on-surface text-sm">concierge@latelier-mayfair.com</p>
+<p class="text-on-surface text-sm">+44 (0) 20 7946 0128</p>
+</div>
+<div class="pt-4">
+<button class="w-full bg-primary-container text-on-primary py-4 text-xs uppercase tracking-widest font-bold hover:opacity-90 transition-opacity">
+                                Initiate Private Brief
+                            </button>
+</div>
+</div>
+</div>
+<div class="mt-12 opacity-40 grayscale hover:opacity-100 transition-opacity">
+<p class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Accreditations</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-4xl">verified_user</span>
+<span class="material-symbols-outlined text-4xl">workspace_premium</span>
+<span class="material-symbols-outlined text-4xl">assured_workload</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Column: Property Feed & Details -->
+<section class="lg:w-2/3">
+<div class="mb-12">
+<h3 class="text-3xl font-serif text-primary border-b border-secondary/10 pb-4 mb-8">Shared Portfolio</h3>
+<!-- Property Card 1 -->
+<div class="group mb-16 bg-surface-container-lowest shadow-[0_4px_24px_rgba(26,92,90,0.04)] overflow-hidden transition-all duration-500 hover:shadow-xl">
+<div class="relative h-[450px] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="modern brutalist concrete villa with large floor to ceiling windows overlooking a Mediterranean cliffside at sunset with warm orange lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxHIzlMz8--sWrDs55mMs8RqumUF-yTyJ3CXu19UljH55Y3TgYks8JgzJqj-dEua6o-jCNwprZGPRp8aMEMcSBLkaqFyuD7V--EjG8DMLiHiu9kedTRt1CZesbH8_5UOtbcCaTniLMirDZx7YgvSykJ1yNlsmM4CwxONjuSptpZ1ibs-17Sd8QbB17lgnIRht71lqRwrSDVnCHiWVRYPHw7YWn9QfJKdxtRvkCorl0dhlPXNyYp4hh2quTdS378R0QytkZkDQ2NuE"/>
+<div class="absolute top-6 right-6 bg-surface/80 backdrop-blur-md px-6 py-3">
+<span class="text-2xl font-serif text-primary font-bold">£8,450,000</span>
+</div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Active Portfolio</span>
+</div>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-serif text-primary mb-1">The Glass Atrium Residence</h4>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span> Belgravia, London SW1
+                                </p>
+</div>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex gap-8 border-t border-secondary/10 pt-6">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Bedrooms</span>
+<span class="text-lg font-serif">05</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Footprint</span>
+<span class="text-lg font-serif">4,200 sq.ft</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Tier</span>
+<span class="text-lg font-serif italic">Penthouse</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Property Card 2 -->
+<div class="group mb-16 bg-surface-container-lowest shadow-[0_4px_24px_rgba(26,92,90,0.04)] overflow-hidden transition-all duration-500 hover:shadow-xl">
+<div class="relative h-[450px] w-full overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="elegant classical London townhouse facade with white stucco details and dark painted door during a clear morning with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE-E4YTXSTGvN8Ttf2R96SPM0z9FUXZqUBcso3QScygejm8SFAfFBQGnbrYFjuWqAjrIpcfCNlRB7S562affNYf_qMHrT22H4Hitp94r0ZPCG9ZdvpIQn5YUVMrdyFkqmXKnoBRsZZfZ98LGg5CqYzqnqRlWb4FkY67y_ONJAAdS2gZ1CGtTlY60skaAEG-4f33FPoGupxud7pOzSv7zWmpO2kdJMHfzxvNPMZPpuvorr_3QVHsGNz_EzlU4SgDk_3LhGb6nC19jk"/>
+<div class="absolute top-6 right-6 bg-surface/80 backdrop-blur-md px-6 py-3">
+<span class="text-2xl font-serif text-primary font-bold">£12,000,000</span>
+</div>
+<div class="absolute bottom-6 left-6">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Under Contract</span>
+</div>
+</div>
+<div class="p-10">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h4 class="text-2xl font-serif text-primary mb-1">Cadogan Heritage House</h4>
+<p class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">location_on</span> Chelsea, London SW3
+                                </p>
+</div>
+<button class="text-secondary hover:text-primary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="flex gap-8 border-t border-secondary/10 pt-6">
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Bedrooms</span>
+<span class="text-lg font-serif">07</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Footprint</span>
+<span class="text-lg font-serif">6,850 sq.ft</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Tier</span>
+<span class="text-lg font-serif italic">Freehold</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex justify-center mt-8">
+<button class="text-xs uppercase tracking-[0.3em] font-bold py-6 px-12 border border-secondary/20 hover:bg-secondary/5 transition-all">
+                        View Entire Archives
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe h-16 bg-[#FDF9F4]/90 dark:bg-stone-950/90 backdrop-blur-md z-50 border-t border-[#705B3E]/20 shadow-[0_-4px_24px_rgba(26,92,90,0.04)]">
+<div class="flex flex-col items-center justify-center text-[#705B3E]/60">
+<span class="material-symbols-outlined">home_work</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Portfolio</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1A5C5A] dark:text-[#FDF9F4] bg-[#705B3E]/10 rounded-full px-4 py-1">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Registry</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#705B3E]/60">
+<span class="material-symbols-outlined">moving</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#705B3E]/60">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Settings</span>
+</div>
+</nav>
+<!-- NavigationDrawer (Hidden by default, for demonstration) -->
+<aside class="hidden md:flex flex-col h-full py-8 bg-[#1A5C5A] dark:bg-[#0D2E2D] h-full w-72 fixed left-0 top-0 rounded-r-sm shadow-xl shadow-[#1A5C5A]/20 z-40 transform -translate-x-full lg:translate-x-0 transition-transform">
+<div class="px-8 mb-12">
+<h2 class="font-serif text-[#FDF9F4] text-2xl italic">Magna</h2>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional male curator avatar in grayscale with clean lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmFnO2mjoHDq_zF7BLTXl12UJj7gaLe9n3f_i2A4THhTAafMhfyngy6lUHscYfTJMzNbHDrKkdMOY4mgAtVG9qVcOJPRA_GRG2V7dxI3a_TbdQEZYgjWfcyBnRayTOY27jz6Izlxp2bCn48_S7s8N-pNyp6nf9zgiuUwN7zmbxX-h-dHwdPJeGjLZDClxopsrijRxJp6Z-HEPwVgWEFRbLJHEexGTfx5edkXXPtVBZqfNdeotdz8RZUB3u4CDRKI3XyEOJJXfi2U4"/>
+</div>
+<div>
+<p class="font-serif text-[#FDF9F4] leading-tight">Magna Buyers</p>
+<p class="font-sans uppercase tracking-widest text-[8px] text-[#FDF9F4]/60">Curator Access</p>
+</div>
+</div>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-4 text-[#FDF9F4]/60 px-6 py-4 hover:bg-[#FDF9F4]/5 transition-all duration-300 font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined">domain</span> Portfolio
+            </a>
+<a class="flex items-center gap-4 bg-[#FDF9F4]/10 text-[#FDF9F4] border-l-4 border-[#705B3E] px-6 py-4 transition-all duration-300 font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined">group</span> Client Registry
+            </a>
+<a class="flex items-center gap-4 text-[#FDF9F4]/60 px-6 py-4 hover:bg-[#FDF9F4]/5 transition-all duration-300 font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined">analytics</span> Market Insights
+            </a>
+<a class="flex items-center gap-4 text-[#FDF9F4]/60 px-6 py-4 hover:bg-[#FDF9F4]/5 transition-all duration-300 font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined">auto_awesome</span> Concierge
+            </a>
+<a class="flex items-center gap-4 text-[#FDF9F4]/60 px-6 py-4 hover:bg-[#FDF9F4]/5 transition-all duration-300 font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="px-8 pt-8 border-t border-[#FDF9F4]/10">
+<p class="text-[10px] text-[#FDF9F4]/40 tracking-widest uppercase">© 2024 Editorial Estate</p>
+</div>
+</aside>
+<!-- Spacer for SideNav desktop -->
+<div class="hidden lg:block w-72"></div>
+</body></html>

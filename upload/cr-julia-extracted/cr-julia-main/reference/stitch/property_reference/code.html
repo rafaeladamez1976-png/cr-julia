@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Property Reference Card | The Editorial Estate</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#c8e9e7",
+                        "secondary-container": "#f9dbb7",
+                        "inverse-surface": "#31302d",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#00201f",
+                        "tertiary-container": "#3b5857",
+                        "on-surface-variant": "#3f4948",
+                        "on-secondary-container": "#755f42",
+                        "surface-container-highest": "#e6e2dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#00201f",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#b0eeeb",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#044f4e",
+                        "primary-fixed-dim": "#94d2cf",
+                        "primary-container": "#1a5c5a",
+                        "tertiary": "#234140",
+                        "surface-container-high": "#ebe8e3",
+                        "primary": "#004442",
+                        "outline-variant": "#bfc8c7",
+                        "on-surface": "#1c1c19",
+                        "inverse-primary": "#94d2cf",
+                        "secondary": "#705b3e",
+                        "on-tertiary-fixed-variant": "#2e4c4b",
+                        "on-primary-container": "#95d2cf",
+                        "outline": "#6f7978",
+                        "surface-dim": "#ddd9d5",
+                        "surface-variant": "#e6e2dd",
+                        "surface-container-low": "#f7f3ee",
+                        "surface-bright": "#fdf9f4",
+                        "inverse-on-surface": "#f4f0eb",
+                        "on-secondary-fixed-variant": "#574329",
+                        "surface-container": "#f1ede8",
+                        "on-primary": "#ffffff",
+                        "background": "#fdf9f4",
+                        "surface": "#fdf9f4",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#adcdcb",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#dfc29f",
+                        "tertiary-fixed-dim": "#adcdcb",
+                        "on-secondary-fixed": "#281903",
+                        "surface-tint": "#296866",
+                        "secondary-fixed": "#fcdeba",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1c1c19"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .font-notoserif { font-family: 'Noto Serif', serif; }
+        .font-sans { font-family: 'Manrope', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<header class="w-full top-0 sticky bg-[#FDF9F4] dark:bg-stone-950 text-[#1A5C5A] dark:text-[#2A8C8A] border-b border-[#705B3E]/10 shadow-sm dark:shadow-none z-50">
+<div class="flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:bg-[#F5F1EC] dark:hover:bg-stone-900 transition-colors p-2 rounded">menu</span>
+<h1 class="font-notoserif text-[#1A5C5A] tracking-tight text-2xl font-serif italic text-[#1A5C5A] dark:text-[#F5F1EC]">The Editorial Estate</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#1A5C5A] font-bold font-sans uppercase tracking-widest text-xs" href="#">Portfolio</a>
+<a class="text-[#705B3E]/70 font-sans uppercase tracking-widest text-xs hover:text-[#1A5C5A]" href="#">Registry</a>
+<a class="text-[#705B3E]/70 font-sans uppercase tracking-widest text-xs hover:text-[#1A5C5A]" href="#">Insights</a>
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="professional portrait of a high-end real estate curator in a tailored suit with a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJRbio9LyoHuXcqhaOjAK0g9HfvsKm_z1kRt5maySsPxBmn8gANJzux7ZBprSyMFsDFf17xKMxgD0T-vAU5we06NfmgGd2Uj02x9-WKUEula1hMlP4gZELc7nXWJ8HYR658B4xesLCqCIoctb2OU19FBI6XPgEnLqF1tKxYhLWzwkxCO5Ii-bJRC_ofjn74SI30vV70Qx7j8D_5Lcgwk0wZTaD8CSAbFxOmA2n_v1NbI4ZIqXe5JuBHFY1nXZhWal6fTdc18ZBpcg"/>
+</div>
+</nav></div>
+</header>
+<main class="max-w-7xl mx-auto px-8 py-12">
+<div class="mb-12">
+<p class="font-headline italic text-secondary text-lg mb-2">Curated Listings</p>
+<h2 class="font-headline text-5xl text-primary font-bold tracking-tight">Portfolio Reference</h2>
+</div>
+<!-- Main Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Side Navigation (Web) -->
+<aside class="hidden lg:block lg:col-span-3">
+<div class="bg-[#1A5C5A] dark:bg-[#0D2E2D] h-auto w-full rounded shadow-xl shadow-[#1A5C5A]/20 flex flex-col py-8">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<p class="font-serif text-[#FDF9F4] text-lg">Magna Buyers</p>
+<p class="font-sans uppercase tracking-widest text-[10px] text-white/60">Curator Access</p>
+</div>
+</div>
+<nav class="flex flex-col">
+<a class="bg-[#FDF9F4]/10 text-[#FDF9F4] border-l-4 border-[#705B3E] px-6 py-4 flex items-center gap-4 font-sans uppercase tracking-widest text-xs" href="#">
+<span class="material-symbols-outlined text-sm">domain</span> Portfolio
+                        </a>
+<a class="text-[#FDF9F4]/60 px-6 py-4 flex items-center gap-4 font-sans uppercase tracking-widest text-xs hover:bg-[#FDF9F4]/5 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">group</span> Client Registry
+                        </a>
+<a class="text-[#FDF9F4]/60 px-6 py-4 flex items-center gap-4 font-sans uppercase tracking-widest text-xs hover:bg-[#FDF9F4]/5 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">analytics</span> Market Insights
+                        </a>
+<a class="text-[#FDF9F4]/60 px-6 py-4 flex items-center gap-4 font-sans uppercase tracking-widest text-xs hover:bg-[#FDF9F4]/5 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">auto_awesome</span> Concierge
+                        </a>
+<a class="text-[#FDF9F4]/60 px-6 py-4 flex items-center gap-4 font-sans uppercase tracking-widest text-xs hover:bg-[#FDF9F4]/5 transition-all duration-300" href="#">
+<span class="material-symbols-outlined text-sm">settings</span> Settings
+                        </a>
+</nav>
+</div>
+</aside>
+<!-- Content Area -->
+<div class="lg:col-span-9 space-y-8">
+<!-- Property Reference Card -->
+<article class="bg-surface-container-lowest rounded-sm shadow-[0_24px_48px_rgba(26,92,90,0.06)] overflow-hidden flex flex-col md:flex-row min-h-[480px]">
+<!-- Imagery Section -->
+<div class="md:w-5/12 relative bg-surface-container-low overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="contemporary architectural masterpiece house with glass walls and stone textures at twilight with warm interior lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp2sCvaWAG3ZAvTsJCeztzXPjg3l95dDFoErs1KaS8q03thrFarqpfG6DGzaA0L-JUOMwNRKewhmPj4xCcIsYaMuq8AJmj_U6M5ynqPqPFxKX3kAkTJ9B76ta5gto4VdJvNOP_31j8TEUa-v-vKSzpeFQn99zczERINRxbw2_Y_mKuqNb0CjiMK4Q1ZzIbMwgWs3AtdIrxmwxvB9u2WxAULvAh_FdfTP1GbpX7sh-PXP3NEFAEgc4SV7j7RCAT0EMDk_zXEblHf_M"/>
+<!-- Floating Price Tag -->
+<div class="absolute bottom-6 right-6 bg-surface/80 backdrop-blur-md px-6 py-3 border border-outline-variant/10">
+<p class="font-headline text-2xl text-primary font-bold">$4,850,000</p>
+</div>
+<!-- Status Badge -->
+<div class="absolute top-6 left-6">
+<span class="bg-secondary-fixed text-on-secondary-fixed px-4 py-1 rounded-full font-sans text-[10px] font-bold uppercase tracking-widest">Active Listing</span>
+</div>
+</div>
+<!-- Content Section -->
+<div class="md:w-7/12 p-10 flex flex-col justify-between">
+<div>
+<div class="mb-8">
+<h3 class="font-headline text-3xl text-primary mb-1">The Glass Pavillion</h3>
+<p class="font-sans text-secondary text-sm uppercase tracking-widest mb-4">8822 Skyline Drive, Los Angeles, CA</p>
+<div class="w-12 h-[1px] bg-secondary/30"></div>
+</div>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div>
+<p class="font-headline italic text-secondary text-xs mb-2">Property Type</p>
+<p class="font-sans text-primary font-medium">Modern Estate</p>
+</div>
+<div>
+<p class="font-headline italic text-secondary text-xs mb-2">Collaborating Agency</p>
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-sm bg-tertiary-fixed flex items-center justify-center text-[10px] font-bold text-on-tertiary-fixed">V</div>
+<p class="font-sans text-primary font-medium">Vanguard Realty Group</p>
+</div>
+</div>
+</div>
+<div class="mb-4">
+<p class="font-headline italic text-secondary text-xs mb-4">Interested Buyers</p>
+<div class="space-y-4">
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="headshot of a middle aged man with professional friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0-dvdm1uYtswLAU1VYTNs4c7s_-4M0qBp-MYSSv-_VqrOPjg3rsv9YwOodsNKoTfWkL9YB6qDRI1V6n7nFPVvuF7u5RtGj9JPWtmYhiimcsdSeBD4wN-pdHm0fPhwJj2qIKq_Mq57AQY-s5clgLgHGcF7Q_UIGitaAp-koXO-MKkovFT4A0PbcmXasVrIbSPhZ0QPX1ahSJzjxjBCZIBHhVv32nB65yxruxkUbMngr7XvInRCBqI6dovi-_eXxb3GEPFHxncOpOY"/>
+</div>
+<div>
+<p class="font-sans text-sm font-bold text-primary">Julian Thorne</p>
+<p class="font-sans text-[10px] text-outline uppercase tracking-tighter">Budget: $5M - $6M</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward_ios</span>
+</div>
+<div class="flex items-center justify-between group">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="headshot of a business woman with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQcT2YGpHO7qnbRq_hq4DuVdKghgU4btpjX8s-G7q3axVMXzofyvWX9B-zok-6zTTL9raNqTaa5r7jYsnUgTB8nw-IPJ8iGgb-yWTDnW9nKmYvtDiSve1fL1jrgEgPP6VlK_ahug8St1KrBEk1xHsnz-EREWrTK0X72belMLIeunmMYiStNH030ctquKrDmAIYorA9OqQqw7RwuENUD1nVaItOb0ZvBnBsTeTu7_TykoPV12uprJOoxQ48gUwqSeMicU19ofsgR0s"/>
+</div>
+<div>
+<p class="font-sans text-sm font-bold text-primary">Elena Rodriguez</p>
+<p class="font-sans text-[10px] text-outline uppercase tracking-tighter">Budget: $4M - $4.5M</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex gap-4">
+<button class="bg-primary-container text-on-primary-fixed hover:opacity-90 transition-all px-8 py-3 rounded-sm font-sans text-xs uppercase tracking-widest font-bold">Inquire Listing</button>
+<button class="text-secondary font-sans text-xs uppercase tracking-widest font-bold border-b-2 border-secondary-container hover:border-secondary transition-all py-3 px-2">View Full Dossier</button>
+</div>
+</div>
+</article>
+<!-- Additional Context / Bento Style Detail -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-low p-8 rounded-sm border border-[#705B3E]/5">
+<h4 class="font-headline text-xl text-primary mb-4">Market Insight</h4>
+<p class="font-sans text-sm text-on-surface-variant leading-relaxed">Skyline Drive properties have seen a 12% appreciation in the last quarter. Private curated listings like the Glass Pavillion are currently averaging only 14 days on market.</p>
+</div>
+<div class="bg-tertiary text-on-tertiary-fixed p-8 rounded-sm relative overflow-hidden">
+<div class="relative z-10">
+<h4 class="font-headline text-xl mb-4">Concierge Note</h4>
+<p class="font-sans text-sm leading-relaxed opacity-80 italic">"Property contains a rare collection of mid-century original features. Ideal for the Thorne portfolio. Private showing scheduled for Friday."</p>
+</div>
+<span class="material-symbols-outlined absolute -bottom-4 -right-4 text-9xl opacity-5 pointer-events-none">auto_awesome</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#FDF9F4]/90 dark:bg-stone-950/90 backdrop-blur-md border-t border-[#705B3E]/20 flex justify-around items-center px-4 pb-safe h-16 z-50">
+<div class="flex flex-col items-center justify-center text-[#1A5C5A] dark:text-[#FDF9F4] bg-[#705B3E]/10 rounded-full px-4 py-1">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">home_work</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Portfolio</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#705B3E]/60">
+<span class="material-symbols-outlined text-xl">person_search</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Registry</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#705B3E]/60">
+<span class="material-symbols-outlined text-xl">moving</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Insights</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#705B3E]/60">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Settings</span>
+</div>
+</nav>
+</body></html>
