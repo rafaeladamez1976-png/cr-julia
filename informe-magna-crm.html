@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAGNA CRM — Informe Técnico y Plan de Implementación</title>
+  <style>
+    /* ===== GENERAL ===== */
+    body {
+      font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+      font-size: 11pt;
+      color: #1a1a2e;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 30px auto;
+      background: white;
+      padding: 20mm 20mm 20mm 25mm;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+
+    @media print {
+      body { background: white; }
+      .page { margin: 0; box-shadow: none; padding: 15mm 20mm 15mm 25mm; }
+      .page-break { page-break-before: always; }
+    }
+
+    /* ===== PORTADA ===== */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 257mm;
+      text-align: center;
+    }
+
+    .cover-badge {
+      background: linear-gradient(135deg, #0d9488, #0891b2);
+      color: white;
+      padding: 8px 24px;
+      border-radius: 30px;
+      font-size: 10pt;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .cover-logo {
+      font-size: 52pt;
+      font-weight: 900;
+      color: #0d9488;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .cover-logo span {
+      color: #1a1a2e;
+    }
+
+    .cover-subtitle {
+      font-size: 16pt;
+      color: #4b5563;
+      font-weight: 300;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .cover-divider {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #0d9488, #f59e0b);
+      border-radius: 2px;
+      margin: 0 auto 40px auto;
+    }
+
+    .cover-title {
+      font-size: 22pt;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+      max-width: 450px;
+    }
+
+    .cover-desc {
+      font-size: 12pt;
+      color: #6b7280;
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cover-meta-item {
+      text-align: center;
+    }
+
+    .cover-meta-label {
+      font-size: 8pt;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .cover-meta-value {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #1a1a2e;
+    }
+
+    /* ===== ÍNDICE ===== */
+    .toc {
+      margin-top: 20px;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 10px;
+      font-size: 11pt;
+    }
+
+    .toc-num {
+      color: #0d9488;
+      font-weight: 700;
+      min-width: 30px;
+    }
+
+    .toc-title {
+      flex: 1;
+      color: #1a1a2e;
+    }
+
+    .toc-dots {
+      flex: 1;
+      border-bottom: 1px dotted #d1d5db;
+      margin: 0 8px;
+    }
+
+    .toc-page {
+      color: #6b7280;
+      font-size: 10pt;
+    }
+
+    .toc-sub {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 6px;
+      padding-left: 30px;
+      font-size: 10pt;
+    }
+
+    /* ===== HEADINGS ===== */
+    h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #0d9488;
+      margin: 0 0 6px 0;
+      padding: 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 15pt;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 28px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      background: linear-gradient(135deg, #0d9488, #0891b2);
+      border-radius: 2px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    h3 {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #374151;
+      margin: 20px 0 8px 0;
+    }
+
+    h4 {
+      font-size: 11pt;
+      font-weight: 600;
+      color: #0d9488;
+      margin: 14px 0 6px 0;
+    }
+
+    /* ===== SECTION HEADER ===== */
+    .section-header {
+      background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+      color: white;
+      padding: 20px 25px;
+      margin: -20mm -20mm 30px -25mm;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-number {
+      font-size: 32pt;
+      font-weight: 900;
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .section-info h1 {
+      color: white;
+      margin: 0;
+      font-size: 18pt;
+    }
+
+    .section-info p {
+      color: rgba(255,255,255,0.8);
+      margin: 2px 0 0 0;
+      font-size: 10pt;
+    }
+
+    /* ===== ESTADO BADGE ===== */
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .status-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .status-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14pt;
+      flex-shrink: 0;
+    }
+
+    .status-icon.ok { background: #dcfce7; }
+    .status-icon.no { background: #fee2e2; }
+    .status-icon.partial { background: #fef3c7; }
+
+    .status-label { font-size: 10pt; color: #6b7280; }
+    .status-value { font-size: 10.5pt; font-weight: 600; color: #1a1a2e; }
+
+    /* ===== TABLAS ===== */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 10pt;
+    }
+
+    thead tr {
+      background: linear-gradient(135deg, #0d9488, #0891b2);
+      color: white;
+    }
+
+    thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 10pt;
+    }
+
+    tbody tr:nth-child(even) { background: #f8fafc; }
+    tbody tr:hover { background: #f0fdf4; }
+
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid #e5e7eb;
+      color: #374151;
+    }
+
+    tbody td:first-child { font-weight: 500; color: #1a1a2e; }
+
+    /* ===== MÓDULOS ===== */
+    .module-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .module-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .module-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #0d9488, #f59e0b);
+    }
+
+    .module-num {
+      font-size: 22pt;
+      font-weight: 900;
+      color: #f0fdf4;
+      position: absolute;
+      right: 12px;
+      top: 8px;
+      line-height: 1;
+    }
+
+    .module-name {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #0d9488;
+      margin: 0 0 6px 0;
+    }
+
+    .module-desc {
+      font-size: 9.5pt;
+      color: #4b5563;
+      line-height: 1.5;
+      margin: 0 0 10px 0;
+    }
+
+    .module-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .module-features li {
+      font-size: 9pt;
+      color: #6b7280;
+      padding: 2px 0;
+    }
+
+    .module-features li::before {
+      content: '→ ';
+      color: #0d9488;
+      font-weight: 700;
+    }
+
+    /* ===== SQL / CODE ===== */
+    .code-block {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 12px 0;
+      font-family: 'Consolas', 'Courier New', monospace;
+      font-size: 8.5pt;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .sql-comment { color: #64748b; }
+    .sql-keyword { color: #38bdf8; font-weight: 600; }
+    .sql-type { color: #34d399; }
+    .sql-string { color: #fb923c; }
+    .sql-table { color: #a78bfa; }
+
+    /* ===== FASES ===== */
+    .phase-list {
+      margin: 16px 0;
+    }
+
+    .phase-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+
+    .phase-badge {
+      background: linear-gradient(135deg, #0d9488, #0891b2);
+      color: white;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14pt;
+      flex-shrink: 0;
+    }
+
+    .phase-content {
+      flex: 1;
+      border-left: 2px solid #e5e7eb;
+      padding-left: 16px;
+      margin-left: -2px;
+    }
+
+    .phase-title {
+      font-size: 12pt;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 0 0 4px 0;
+    }
+
+    .phase-duration {
+      display: inline-block;
+      background: #f0fdf4;
+      color: #0d9488;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      padding: 2px 10px;
+      font-size: 9pt;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .phase-tasks {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .phase-tasks li {
+      font-size: 10pt;
+      color: #4b5563;
+      padding: 3px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .phase-tasks li::before {
+      content: '✓';
+      color: #0d9488;
+      font-weight: 700;
+      font-size: 10pt;
+    }
+
+    /* ===== STACK TECH ===== */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .tech-card {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .tech-category {
+      font-size: 8pt;
+      color: #0d9488;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .tech-name {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1a1a2e;
+    }
+
+    .tech-desc {
+      font-size: 8.5pt;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    /* ===== CRONOGRAMA ===== */
+    .timeline {
+      margin: 16px 0;
+    }
+
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 10px;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 4px solid #0d9488;
+    }
+
+    .timeline-phase {
+      font-weight: 700;
+      color: #1a1a2e;
+      min-width: 160px;
+      font-size: 10pt;
+    }
+
+    .timeline-bar-wrap {
+      flex: 1;
+      background: #e5e7eb;
+      border-radius: 10px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    .timeline-bar {
+      height: 100%;
+      background: linear-gradient(135deg, #0d9488, #0891b2);
+      border-radius: 10px;
+    }
+
+    .timeline-days {
+      font-size: 9.5pt;
+      color: #6b7280;
+      min-width: 70px;
+      text-align: right;
+    }
+
+    /* ===== COSTOS ===== */
+    .cost-table {
+      border: 2px solid #0d9488;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .cost-table table {
+      margin: 0;
+    }
+
+    .cost-table thead tr {
+      background: #0d9488;
+    }
+
+    .cost-total {
+      background: #0d9488 !important;
+      color: white !important;
+    }
+
+    .cost-total td {
+      color: white !important;
+      font-weight: 700 !important;
+      font-size: 11pt !important;
+    }
+
+    /* ===== CALL OUT BOXES ===== */
+    .callout {
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 14px 0;
+      border-left: 4px solid;
+    }
+
+    .callout-info {
+      background: #eff6ff;
+      border-color: #3b82f6;
+    }
+
+    .callout-success {
+      background: #f0fdf4;
+      border-color: #22c55e;
+    }
+
+    .callout-warning {
+      background: #fffbeb;
+      border-color: #f59e0b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 10.5pt;
+      margin-bottom: 4px;
+    }
+
+    .callout-info .callout-title { color: #1d4ed8; }
+    .callout-success .callout-title { color: #15803d; }
+    .callout-warning .callout-title { color: #b45309; }
+
+    .callout p {
+      margin: 0;
+      font-size: 10pt;
+      color: #374151;
+      line-height: 1.5;
+    }
+
+    /* ===== DB SCHEMA VISUAL ===== */
+    .schema-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .schema-table {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 9pt;
+    }
+
+    .schema-table-header {
+      background: #1a1a2e;
+      color: white;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 9.5pt;
+    }
+
+    .schema-field {
+      padding: 5px 12px;
+      border-bottom: 1px solid #f3f4f6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .schema-field:last-child { border-bottom: none; }
+
+    .field-name { color: #1a1a2e; font-weight: 500; }
+    .field-type { color: #0d9488; font-size: 8pt; }
+    .field-pk { color: #f59e0b; font-size: 8pt; font-weight: 700; }
+
+    /* ===== PRINT HELPERS ===== */
+    .page-break { page-break-before: always; }
+
+    p { margin: 8px 0; }
+
+    ul { margin: 8px 0; padding-left: 20px; }
+    ul li { margin-bottom: 4px; color: #374151; font-size: 10.5pt; }
+
+    .highlight { background: #fffbeb; padding: 2px 6px; border-radius: 3px; font-weight: 600; color: #b45309; }
+    .badge-ok { background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 12px; font-size: 9pt; font-weight: 600; }
+    .badge-no { background: #fee2e2; color: #dc2626; padding: 2px 8px; border-radius: 12px; font-size: 9pt; font-weight: 600; }
+    .badge-partial { background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 12px; font-size: 9pt; font-weight: 600; }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 12px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8.5pt;
+      color: #9ca3af;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PÁGINA 1: PORTADA -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-badge">Propuesta Técnica Confidencial</div>
+
+    <div class="cover-logo">MAGNA<span>CRM</span></div>
+    <div class="cover-subtitle">Buyers Agents Premium</div>
+    <div class="cover-divider"></div>
+
+    <div class="cover-title">Plan Completo de Implementación y Producción</div>
+    <div class="cover-desc">
+      Informe técnico completo que incluye arquitectura del sistema, módulos funcionales, esquema de base de datos Supabase y hoja de ruta para el lanzamiento a producción.
+    </div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Fecha</span>
+        <span class="cover-meta-value">Mayo 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Versión</span>
+        <span class="cover-meta-value">v1.0</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Clasificación</span>
+        <span class="cover-meta-value">Confidencial</span>
+      </div>
+      <div class="cover-meta-item">
+        <span class="cover-meta-label">Módulos</span>
+        <span class="cover-meta-value">10 completos</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 2: ÍNDICE -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <h2 style="margin-top:0">Tabla de Contenidos</h2>
+
+  <div class="toc">
+    <div class="toc-item">
+      <span class="toc-num">1.</span>
+      <span class="toc-title">Resumen Ejecutivo</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">3</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">2.</span>
+      <span class="toc-title">Estado Actual del Proyecto</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">3</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">3.</span>
+      <span class="toc-title">Módulos y Funcionalidades (10 módulos)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">4</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">3.1</span>
+      <span class="toc-title" style="color:#6b7280">Dashboard y Analíticas</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">4</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">3.2</span>
+      <span class="toc-title" style="color:#6b7280">Gestión de Clientes y Pipeline</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">4</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">3.3</span>
+      <span class="toc-title" style="color:#6b7280">Propiedades y Colaboradores</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">5</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">3.4</span>
+      <span class="toc-title" style="color:#6b7280">Calendario, Tareas y Comunicaciones</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">5</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">4.</span>
+      <span class="toc-title">Stack Tecnológico</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">6</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">5.</span>
+      <span class="toc-title">Base de Datos Supabase — Esquema Completo</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">7</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">5.1</span>
+      <span class="toc-title" style="color:#6b7280">Diagrama de Tablas</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">7</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">5.2</span>
+      <span class="toc-title" style="color:#6b7280">SQL Completo de Creación</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">8</span>
+    </div>
+    <div class="toc-sub">
+      <span class="toc-num" style="color:#6b7280">5.3</span>
+      <span class="toc-title" style="color:#6b7280">Políticas de Seguridad (RLS)</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">9</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">6.</span>
+      <span class="toc-title">Plan de Implementación — 5 Fases</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">10</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">7.</span>
+      <span class="toc-title">Cronograma y Hitos</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">11</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">8.</span>
+      <span class="toc-title">Costos de Infraestructura</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">12</span>
+    </div>
+    <div class="toc-item">
+      <span class="toc-num">9.</span>
+      <span class="toc-title">Próximos Pasos</span>
+      <span class="toc-dots"></span>
+      <span class="toc-page">12</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Documento Confidencial | Mayo 2026</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 3: RESUMEN EJECUTIVO + ESTADO ACTUAL -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <div class="section-info">
+      <h1>Resumen Ejecutivo</h1>
+      <p>Visión general del proyecto y estado actual</p>
+    </div>
+  </div>
+
+  <h2>¿Qué es MAGNA CRM?</h2>
+  <p>
+    <strong>MAGNA CRM</strong> es una plataforma premium de gestión de relaciones con clientes (CRM) diseñada específicamente para <strong>Buyers Agents inmobiliarios</strong>. Centraliza toda la operativa comercial: cartera de clientes, propiedades, pipeline de ventas, colaboradores, calendario y analíticas, todo desde un único sistema web moderno y accesible desde cualquier dispositivo.
+  </p>
+
+  <div class="callout callout-success">
+    <div class="callout-title">✅ Frontend 100% Terminado</div>
+    <p>El sistema cuenta con una interfaz completamente construida: 10 módulos funcionales, diseño responsivo para móvil/tablet/escritorio, modo oscuro, animaciones y más de 51 componentes UI premium. El trabajo de desarrollo visual está completado.</p>
+  </div>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">⚡ Siguiente paso: Conectar Backend y Base de Datos</div>
+    <p>Actualmente los datos son de demostración (mock data). El plan de implementación que se detalla en este documento convierte el CRM en un sistema real y persistente conectado a Supabase (PostgreSQL en la nube), con autenticación segura y despliegue en producción.</p>
+  </div>
+
+  <h2>Estado Actual del Proyecto</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Componente</th>
+        <th>Estado</th>
+        <th>Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Frontend (Next.js 16)</td>
+        <td><span class="badge-ok">✅ Completo</span></td>
+        <td>10 módulos, responsivo, dark mode</td>
+      </tr>
+      <tr>
+        <td>UI/UX (shadcn + Tailwind)</td>
+        <td><span class="badge-ok">✅ Completo</span></td>
+        <td>51 componentes premium, animaciones</td>
+      </tr>
+      <tr>
+        <td>Datos de demostración</td>
+        <td><span class="badge-ok">✅ Completo</span></td>
+        <td>Mock data para todas las secciones</td>
+      </tr>
+      <tr>
+        <td>Base de datos real</td>
+        <td><span class="badge-no">❌ Pendiente</span></td>
+        <td>Solo SQLite local — migrar a Supabase</td>
+      </tr>
+      <tr>
+        <td>Integración Supabase</td>
+        <td><span class="badge-no">❌ Pendiente</span></td>
+        <td>Diseñado en este documento (12 tablas)</td>
+      </tr>
+      <tr>
+        <td>Autenticación real</td>
+        <td><span class="badge-partial">⏳ Parcial</span></td>
+        <td>UI lista, next-auth instalado sin config</td>
+      </tr>
+      <tr>
+        <td>API Routes (backend)</td>
+        <td><span class="badge-no">❌ Pendiente</span></td>
+        <td>Solo endpoint de prueba</td>
+      </tr>
+      <tr>
+        <td>Deployment producción</td>
+        <td><span class="badge-partial">⏳ Parcial</span></td>
+        <td>Vercel configurado, falta activar</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 3 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 4-5: MÓDULOS -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <div class="section-info">
+      <h1>Módulos y Funcionalidades</h1>
+      <p>10 módulos completamente construidos y funcionales</p>
+    </div>
+  </div>
+
+  <div class="module-grid">
+    <div class="module-card">
+      <div class="module-num">01</div>
+      <div class="module-name">📊 Dashboard</div>
+      <div class="module-desc">Vista central de KPIs y actividad del negocio en tiempo real.</div>
+      <ul class="module-features">
+        <li>4 tarjetas KPI (clientes, visitas, operaciones, cierres)</li>
+        <li>Gráfica de ingresos 6 meses (área)</li>
+        <li>Origen de leads (gráfica circular)</li>
+        <li>Actividad reciente con timeline</li>
+        <li>Tareas próximas y resumen de pipeline</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">02</div>
+      <div class="module-name">👥 Clientes</div>
+      <div class="module-desc">Cartera de clientes compradores con scoring y seguimiento completo.</div>
+      <ul class="module-features">
+        <li>Ficha de cliente con score 0-100</li>
+        <li>Estados: Activo, Templado, Dormido, Cerrado</li>
+        <li>Historial de interacciones (llamadas, emails, reuniones)</li>
+        <li>Búsqueda y filtros avanzados</li>
+        <li>Formulario de alta de nuevo cliente</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">03</div>
+      <div class="module-name">🤝 Colaboradores</div>
+      <div class="module-desc">Red de agencias inmobiliarias y partners con gestión de acuerdos.</div>
+      <ul class="module-features">
+        <li>Directorio de agencias con valoración por estrellas</li>
+        <li>Propiedades compartidas por colaborador</li>
+        <li>Historial de operaciones conjuntas</li>
+        <li>Datos de contacto y especialidad</li>
+        <li>Panel de detalle con actividad</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">04</div>
+      <div class="module-name">🏠 Propiedades</div>
+      <div class="module-desc">Inventario inmobiliario con estado, especificaciones y clientes vinculados.</div>
+      <ul class="module-features">
+        <li>Estado: Disponible, Reservada, Vendida</li>
+        <li>Ficha técnica completa (m², hab., baños, planta)</li>
+        <li>Clientes interesados vinculados</li>
+        <li>Historial de visitas y estado</li>
+        <li>Vista tabla y vista tarjeta</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">05</div>
+      <div class="module-name">📈 Pipeline</div>
+      <div class="module-desc">Embudo de ventas en formato Kanban con 6 etapas del proceso.</div>
+      <ul class="module-features">
+        <li>Etapas: Primer Contacto → Cualificación → Búsqueda Activa → Visitas → Negociación → Cerrado</li>
+        <li>Scoring por deal (0-100)</li>
+        <li>Días en cada etapa</li>
+        <li>Arrastrar y soltar entre etapas</li>
+        <li>Filtros por zona y presupuesto</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">06</div>
+      <div class="module-name">📅 Calendario</div>
+      <div class="module-desc">Gestión de agenda con visitas, reuniones, firmas y eventos internos.</div>
+      <ul class="module-features">
+        <li>Vista mensual con indicadores por día</li>
+        <li>Tipos: Visita, Reunión, Firma, Interno</li>
+        <li>Detalle de eventos por día</li>
+        <li>Duración y cliente vinculado</li>
+        <li>Navegación mes a mes</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">07</div>
+      <div class="module-name">📉 Analíticas</div>
+      <div class="module-desc">Métricas de rendimiento y tendencias para la toma de decisiones.</div>
+      <ul class="module-features">
+        <li>KPIs mensuales de rendimiento</li>
+        <li>Gráfica de barras mensual (clientes, visitas, operaciones)</li>
+        <li>Tendencia de ingresos (gráfica de línea)</li>
+        <li>Tasa de conversión por etapa</li>
+        <li>Comparativa periodos anteriores</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">08</div>
+      <div class="module-name">✅ Tareas</div>
+      <div class="module-desc">Gestión de tareas comerciales vinculadas a clientes y propiedades.</div>
+      <ul class="module-features">
+        <li>Prioridad: Urgente, Alta, Media, Baja</li>
+        <li>Estado: Pendiente, En Progreso, Completada</li>
+        <li>Tipos: Documento, Llamada, Reunión, Actualización</li>
+        <li>Vinculación a cliente específico</li>
+        <li>Fecha límite y seguimiento</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">09</div>
+      <div class="module-name">📧 Comunicaciones</div>
+      <div class="module-desc">Biblioteca de plantillas de email por categoría comercial.</div>
+      <ul class="module-features">
+        <li>Categorías: Seguimiento, Promoción, Negociación, Agenda, Onboarding</li>
+        <li>Asunto y cuerpo predefinido por plantilla</li>
+        <li>5 plantillas listas para usar</li>
+        <li>Ampliable con nuevas plantillas</li>
+        <li>Personalizable por agente</li>
+      </ul>
+    </div>
+
+    <div class="module-card">
+      <div class="module-num">10</div>
+      <div class="module-name">⚙️ Configuración</div>
+      <div class="module-desc">Gestión de cuenta, seguridad, notificaciones y preferencias del sistema.</div>
+      <ul class="module-features">
+        <li>Perfil de usuario y workspace</li>
+        <li>Seguridad: cambio de contraseña, sesiones activas</li>
+        <li>Notificaciones por tipo y canal</li>
+        <li>Modo oscuro / claro persistente</li>
+        <li>Cierre de sesión seguro</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 4–5 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 6: STACK TECNOLÓGICO -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <div class="section-info">
+      <h1>Stack Tecnológico</h1>
+      <p>Tecnologías enterprise de primer nivel utilizadas en el proyecto</p>
+    </div>
+  </div>
+
+  <p>MAGNA CRM está construido con tecnologías modernas, de alto rendimiento y ampliamente adoptadas por empresas líderes del sector. Toda la arquitectura está orientada a escalabilidad y mantenibilidad a largo plazo.</p>
+
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-category">Framework</div>
+      <div class="tech-name">Next.js 16</div>
+      <div class="tech-desc">React 19, TypeScript 5, App Router</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Estilos</div>
+      <div class="tech-name">Tailwind CSS 4</div>
+      <div class="tech-desc">Utility-first, mobile-first</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Componentes UI</div>
+      <div class="tech-name">shadcn/ui</div>
+      <div class="tech-desc">51 componentes premium accesibles</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Animaciones</div>
+      <div class="tech-name">Framer Motion</div>
+      <div class="tech-desc">Transiciones fluidas y microinteracciones</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Gráficas</div>
+      <div class="tech-name">Recharts</div>
+      <div class="tech-desc">Área, barra, línea, circular</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Estado Global</div>
+      <div class="tech-name">Zustand</div>
+      <div class="tech-desc">Gestión de estado ligera</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Server State</div>
+      <div class="tech-name">TanStack Query</div>
+      <div class="tech-desc">Cache, sync, loading states</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Formularios</div>
+      <div class="tech-name">React Hook Form</div>
+      <div class="tech-desc">+ Zod para validación de esquemas</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Base de Datos</div>
+      <div class="tech-name">Supabase</div>
+      <div class="tech-desc">PostgreSQL gestionado en la nube</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Autenticación</div>
+      <div class="tech-name">Supabase Auth</div>
+      <div class="tech-desc">Email/password, JWT, RLS integrado</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Archivos</div>
+      <div class="tech-name">Supabase Storage</div>
+      <div class="tech-desc">Avatares, fotos de propiedades</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Tiempo Real</div>
+      <div class="tech-name">Supabase Realtime</div>
+      <div class="tech-desc">Notificaciones y cambios en vivo</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Deployment</div>
+      <div class="tech-name">Vercel</div>
+      <div class="tech-desc">Edge network, SSL automático</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Package Manager</div>
+      <div class="tech-name">Bun</div>
+      <div class="tech-desc">Runtime ultrarrápido (10x npm)</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-category">Lenguaje</div>
+      <div class="tech-name">TypeScript 5</div>
+      <div class="tech-desc">Tipado estático, menos errores en prod</div>
+    </div>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-title">ℹ️ ¿Por qué Supabase?</div>
+    <p>Supabase es la alternativa open-source a Firebase, basada en PostgreSQL. Incluye base de datos, autenticación, almacenamiento de archivos y tiempo real en un solo servicio. Es usado por miles de startups y empresas como Replicate, Pika Labs y Linear. Tiene plan gratuito generoso y escala hasta millones de usuarios.</p>
+  </div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 6 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 7: DIAGRAMA DE BD -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <div class="section-info">
+      <h1>Base de Datos Supabase</h1>
+      <p>Esquema completo — 12 tablas PostgreSQL con relaciones</p>
+    </div>
+  </div>
+
+  <h2>5.1 — Diagrama de Tablas</h2>
+  <p>El esquema de base de datos ha sido diseñado para cubrir todos los módulos del CRM con integridad referencial completa entre tablas.</p>
+
+  <div class="schema-grid">
+    <div class="schema-table">
+      <div class="schema-table-header">👤 profiles</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">full_name</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">role</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">workspace_name</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">avatar_url</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">created_at</span><span class="field-type">TIMESTAMPTZ</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">👥 clients</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">name</span><span class="field-type">TEXT NOT NULL</span></div>
+      <div class="schema-field"><span class="field-name">email / phone</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">budget</span><span class="field-type">DECIMAL(12,2)</span></div>
+      <div class="schema-field"><span class="field-name">status / score</span><span class="field-type">TEXT / INT</span></div>
+      <div class="schema-field"><span class="field-name">assigned_agent_id</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">💬 client_interactions</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">client_id</span><span class="field-type">FK → clients</span></div>
+      <div class="schema-field"><span class="field-name">type</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">date</span><span class="field-type">TIMESTAMPTZ</span></div>
+      <div class="schema-field"><span class="field-name">created_by</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">🤝 collaborators</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">agency_name</span><span class="field-type">TEXT NOT NULL</span></div>
+      <div class="schema-field"><span class="field-name">contact_name</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">email / phone</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">rating</span><span class="field-type">DECIMAL(3,1)</span></div>
+      <div class="schema-field"><span class="field-name">city / specialty</span><span class="field-type">TEXT</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">🏠 properties</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">address</span><span class="field-type">TEXT NOT NULL</span></div>
+      <div class="schema-field"><span class="field-name">reference</span><span class="field-type">TEXT UNIQUE</span></div>
+      <div class="schema-field"><span class="field-name">price / area</span><span class="field-type">DECIMAL / INT</span></div>
+      <div class="schema-field"><span class="field-name">status</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">collaborator_id</span><span class="field-type">FK → collaborators</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">🔗 property_clients</div>
+      <div class="schema-field"><span class="field-name">property_id</span><span class="field-type">FK → properties</span></div>
+      <div class="schema-field"><span class="field-name">client_id</span><span class="field-type">FK → clients</span></div>
+      <div class="schema-field" style="background:#f0fdf4"><span class="field-name" style="color:#0d9488">Relación M:N</span><span class="field-type">PK compuesta</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">📈 pipeline_deals</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">client_id</span><span class="field-type">FK → clients</span></div>
+      <div class="schema-field"><span class="field-name">stage</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">budget / score</span><span class="field-type">DECIMAL / INT</span></div>
+      <div class="schema-field"><span class="field-name">days_in_stage</span><span class="field-type">INTEGER</span></div>
+      <div class="schema-field"><span class="field-name">assigned_agent_id</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">✅ tasks</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">title</span><span class="field-type">TEXT NOT NULL</span></div>
+      <div class="schema-field"><span class="field-name">client_id</span><span class="field-type">FK → clients</span></div>
+      <div class="schema-field"><span class="field-name">priority / status</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">due_date</span><span class="field-type">TIMESTAMPTZ</span></div>
+      <div class="schema-field"><span class="field-name">assigned_to</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">📅 events</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">title</span><span class="field-type">TEXT NOT NULL</span></div>
+      <div class="schema-field"><span class="field-name">event_date / time</span><span class="field-type">DATE / TIME</span></div>
+      <div class="schema-field"><span class="field-name">event_type</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">client_id</span><span class="field-type">FK → clients</span></div>
+      <div class="schema-field"><span class="field-name">assigned_to</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">📧 email_templates</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">name / subject</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">body</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">category</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">created_by</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">📋 property_history</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">property_id</span><span class="field-type">FK → properties</span></div>
+      <div class="schema-field"><span class="field-name">event</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">date</span><span class="field-type">TIMESTAMPTZ</span></div>
+      <div class="schema-field"><span class="field-name">created_by</span><span class="field-type">FK → profiles</span></div>
+    </div>
+
+    <div class="schema-table">
+      <div class="schema-table-header">📋 collaborator_history</div>
+      <div class="schema-field"><span class="field-name">id</span><span class="field-pk">PK · UUID</span></div>
+      <div class="schema-field"><span class="field-name">collaborator_id</span><span class="field-type">FK → collaborators</span></div>
+      <div class="schema-field"><span class="field-name">event</span><span class="field-type">TEXT</span></div>
+      <div class="schema-field"><span class="field-name">date</span><span class="field-type">TIMESTAMPTZ</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 7 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 8: SQL COMPLETO -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <h2>5.2 — SQL Completo de Creación (Supabase)</h2>
+  <p>El siguiente SQL se ejecuta directamente en el <strong>SQL Editor de Supabase</strong> para crear todas las tablas del sistema:</p>
+
+  <div class="code-block"><span class="sql-comment">-- =====================================================
+-- MAGNA CRM — Esquema completo Supabase (PostgreSQL)
+-- Ejecutar en: supabase.com → SQL Editor
+-- =====================================================</span>
+
+<span class="sql-comment">-- 1. PERFILES DE USUARIO (extiende auth.users)</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">profiles</span> (
+  id          <span class="sql-type">UUID REFERENCES auth.users(id) PRIMARY KEY</span>,
+  full_name   <span class="sql-type">TEXT</span>,
+  avatar_url  <span class="sql-type">TEXT</span>,
+  role        <span class="sql-type">TEXT DEFAULT</span> <span class="sql-string">'agent'</span>,  <span class="sql-comment">-- admin | agent | manager</span>
+  workspace_name <span class="sql-type">TEXT</span>,
+  created_at  <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at  <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 2. CLIENTES</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">clients</span> (
+  id               <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  name             <span class="sql-type">TEXT NOT NULL</span>,
+  email            <span class="sql-type">TEXT</span>,
+  phone            <span class="sql-type">TEXT</span>,
+  budget           <span class="sql-type">DECIMAL(12,2)</span>,
+  zone             <span class="sql-type">TEXT</span>,
+  status           <span class="sql-type">TEXT DEFAULT</span> <span class="sql-string">'activo'</span>, <span class="sql-comment">-- activo | templado | dormido | cerrado</span>
+  origin           <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- referido | web | eventos | redes | otro</span>
+  client_type      <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- comprador | inversor | propietario</span>
+  family_size      <span class="sql-type">TEXT</span>,
+  score            <span class="sql-type">INTEGER DEFAULT 50</span>,
+  notes            <span class="sql-type">TEXT</span>,
+  avatar_url       <span class="sql-type">TEXT</span>,
+  assigned_agent_id <span class="sql-type">UUID REFERENCES profiles(id)</span>,
+  created_at       <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at       <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 3. INTERACCIONES CON CLIENTES</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">client_interactions</span> (
+  id          <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  client_id   <span class="sql-type">UUID REFERENCES clients(id) ON DELETE CASCADE</span>,
+  type        <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- llamada | mensaje | reunion | email</span>
+  description <span class="sql-type">TEXT</span>,
+  date        <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  created_by  <span class="sql-type">UUID REFERENCES profiles(id)</span>
+);
+
+<span class="sql-comment">-- 4. COLABORADORES</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">collaborators</span> (
+  id           <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  agency_name  <span class="sql-type">TEXT NOT NULL</span>,
+  contact_name <span class="sql-type">TEXT</span>,
+  email        <span class="sql-type">TEXT</span>,
+  phone        <span class="sql-type">TEXT</span>,
+  city         <span class="sql-type">TEXT</span>,
+  specialty    <span class="sql-type">TEXT</span>,
+  rating       <span class="sql-type">DECIMAL(3,1) DEFAULT 0</span>,
+  notes        <span class="sql-type">TEXT</span>,
+  created_at   <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at   <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 5. HISTORIAL DE COLABORADORES</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">collaborator_history</span> (
+  id               <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  collaborator_id  <span class="sql-type">UUID REFERENCES collaborators(id) ON DELETE CASCADE</span>,
+  event            <span class="sql-type">TEXT</span>,
+  date             <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);</div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 8 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 9: SQL PARTE 2 + RLS -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="code-block"><span class="sql-comment">-- 6. PROPIEDADES</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">properties</span> (
+  id              <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  address         <span class="sql-type">TEXT NOT NULL</span>,
+  reference       <span class="sql-type">TEXT UNIQUE</span>,
+  property_type   <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- piso | casa | local | parking</span>
+  price           <span class="sql-type">DECIMAL(12,2)</span>,
+  area            <span class="sql-type">INTEGER</span>,
+  rooms           <span class="sql-type">INTEGER</span>,
+  bathrooms       <span class="sql-type">INTEGER</span>,
+  floor           <span class="sql-type">INTEGER</span>,
+  features        <span class="sql-type">TEXT[]</span>,  <span class="sql-comment">-- array de características</span>
+  status          <span class="sql-type">TEXT DEFAULT</span> <span class="sql-string">'disponible'</span>, <span class="sql-comment">-- disponible | reservada | vendida</span>
+  collaborator_id <span class="sql-type">UUID REFERENCES collaborators(id)</span>,
+  created_at      <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at      <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 7. CLIENTES INTERESADOS EN PROPIEDADES (M:N)</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">property_clients</span> (
+  property_id <span class="sql-type">UUID REFERENCES properties(id) ON DELETE CASCADE</span>,
+  client_id   <span class="sql-type">UUID REFERENCES clients(id) ON DELETE CASCADE</span>,
+  <span class="sql-keyword">PRIMARY KEY</span> (property_id, client_id)
+);
+
+<span class="sql-comment">-- 8. HISTORIAL DE PROPIEDADES</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">property_history</span> (
+  id          <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  property_id <span class="sql-type">UUID REFERENCES properties(id) ON DELETE CASCADE</span>,
+  event       <span class="sql-type">TEXT</span>,
+  date        <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  created_by  <span class="sql-type">UUID REFERENCES profiles(id)</span>
+);
+
+<span class="sql-comment">-- 9. PIPELINE DE VENTAS</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">pipeline_deals</span> (
+  id               <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  client_id        <span class="sql-type">UUID REFERENCES clients(id)</span>,
+  budget           <span class="sql-type">DECIMAL(12,2)</span>,
+  zone             <span class="sql-type">TEXT</span>,
+  stage            <span class="sql-type">TEXT DEFAULT</span> <span class="sql-string">'primer_contacto'</span>,
+  <span class="sql-comment">  -- primer_contacto | cualificacion | busqueda_activa | visitas | negociacion | cerrado</span>
+  days_in_stage    <span class="sql-type">INTEGER DEFAULT 0</span>,
+  score            <span class="sql-type">INTEGER DEFAULT 50</span>,
+  notes            <span class="sql-type">TEXT</span>,
+  assigned_agent_id <span class="sql-type">UUID REFERENCES profiles(id)</span>,
+  created_at       <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at       <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 10. TAREAS</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">tasks</span> (
+  id          <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  title       <span class="sql-type">TEXT NOT NULL</span>,
+  client_id   <span class="sql-type">UUID REFERENCES clients(id)</span>,
+  property_id <span class="sql-type">UUID REFERENCES properties(id)</span>,
+  priority    <span class="sql-type">TEXT DEFAULT</span> <span class="sql-string">'media'</span>,   <span class="sql-comment">-- urgente | alta | media | baja</span>
+  status      <span class="sql-type">TEXT DEFAULT</span> <span class="sql-string">'pendiente'</span>, <span class="sql-comment">-- pendiente | en_progreso | completada</span>
+  task_type   <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- documento | llamada | reunion | actualizacion</span>
+  due_date    <span class="sql-type">TIMESTAMPTZ</span>,
+  assigned_to <span class="sql-type">UUID REFERENCES profiles(id)</span>,
+  created_by  <span class="sql-type">UUID REFERENCES profiles(id)</span>,
+  created_at  <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at  <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 11. EVENTOS DE CALENDARIO</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">events</span> (
+  id          <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  title       <span class="sql-type">TEXT NOT NULL</span>,
+  event_date  <span class="sql-type">DATE</span>,
+  event_time  <span class="sql-type">TIME</span>,
+  event_type  <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- visita | reunion | firma | interno</span>
+  client_id   <span class="sql-type">UUID REFERENCES clients(id)</span>,
+  property_id <span class="sql-type">UUID REFERENCES properties(id)</span>,
+  duration    <span class="sql-type">INTEGER</span>,  <span class="sql-comment">-- minutos</span>
+  notes       <span class="sql-type">TEXT</span>,
+  assigned_to <span class="sql-type">UUID REFERENCES profiles(id)</span>,
+  created_at  <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);
+
+<span class="sql-comment">-- 12. PLANTILLAS DE EMAIL</span>
+<span class="sql-keyword">CREATE TABLE</span> <span class="sql-table">email_templates</span> (
+  id         <span class="sql-type">UUID DEFAULT gen_random_uuid() PRIMARY KEY</span>,
+  name       <span class="sql-type">TEXT NOT NULL</span>,
+  subject    <span class="sql-type">TEXT</span>,
+  body       <span class="sql-type">TEXT</span>,
+  category   <span class="sql-type">TEXT</span>,  <span class="sql-comment">-- seguimiento | promocion | negociacion | agenda | onboarding</span>
+  created_by <span class="sql-type">UUID REFERENCES profiles(id)</span>,
+  created_at <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>,
+  updated_at <span class="sql-type">TIMESTAMPTZ DEFAULT NOW()</span>
+);</div>
+
+  <h2>5.3 — Seguridad: Row Level Security (RLS)</h2>
+  <p>Supabase usa RLS (Row Level Security) para que cada agente acceda únicamente a sus propios datos:</p>
+
+  <div class="code-block"><span class="sql-comment">-- Activar RLS en todas las tablas</span>
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">profiles</span>              <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">clients</span>               <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">client_interactions</span>   <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">collaborators</span>         <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">properties</span>            <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">pipeline_deals</span>        <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">tasks</span>                 <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+<span class="sql-keyword">ALTER TABLE</span> <span class="sql-table">events</span>                <span class="sql-keyword">ENABLE ROW LEVEL SECURITY</span>;
+
+<span class="sql-comment">-- Ejemplo: agente solo ve clientes asignados a él</span>
+<span class="sql-keyword">CREATE POLICY</span> <span class="sql-string">"agents_own_clients"</span> <span class="sql-keyword">ON</span> <span class="sql-table">clients</span>
+  <span class="sql-keyword">FOR ALL USING</span> (assigned_agent_id = auth.uid());</div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 9 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 10: FASES DE IMPLEMENTACIÓN -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">06</div>
+    <div class="section-info">
+      <h1>Plan de Implementación</h1>
+      <p>5 fases ordenadas para llevar el CRM a producción real</p>
+    </div>
+  </div>
+
+  <div class="phase-list">
+
+    <div class="phase-item">
+      <div class="phase-badge">1</div>
+      <div class="phase-content">
+        <div class="phase-title">Configuración Supabase y Base de Datos</div>
+        <div class="phase-duration">2–3 días</div>
+        <ul class="phase-tasks">
+          <li>Crear cuenta y proyecto en supabase.com</li>
+          <li>Ejecutar el SQL completo de las 12 tablas en el Editor SQL</li>
+          <li>Configurar Row Level Security (RLS) para seguridad multi-agente</li>
+          <li>Habilitar autenticación por email + contraseña</li>
+          <li>Crear bucket de almacenamiento (Storage) para avatares y fotos</li>
+          <li>Copiar variables de entorno: NEXT_PUBLIC_SUPABASE_URL y SUPABASE_ANON_KEY</li>
+          <li>Añadir variables al archivo .env del proyecto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-item">
+      <div class="phase-badge">2</div>
+      <div class="phase-content">
+        <div class="phase-title">API Routes — Backend CRUD</div>
+        <div class="phase-duration">3–5 días</div>
+        <ul class="phase-tasks">
+          <li>Instalar paquetes: @supabase/supabase-js y @supabase/ssr</li>
+          <li>Crear cliente Supabase centralizado en src/lib/supabase.ts</li>
+          <li>Crear endpoint /api/clients (GET, POST, PUT, DELETE)</li>
+          <li>Crear endpoint /api/properties (GET, POST, PUT, DELETE)</li>
+          <li>Crear endpoint /api/pipeline (GET, POST, PUT)</li>
+          <li>Crear endpoint /api/tasks (GET, POST, PUT, DELETE)</li>
+          <li>Crear endpoint /api/events (GET, POST, PUT, DELETE)</li>
+          <li>Crear endpoint /api/collaborators (GET, POST, PUT, DELETE)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-item">
+      <div class="phase-badge">3</div>
+      <div class="phase-content">
+        <div class="phase-title">Autenticación Real (Supabase Auth)</div>
+        <div class="phase-duration">1–2 días</div>
+        <ul class="phase-tasks">
+          <li>Reemplazar login simulado por supabase.auth.signInWithPassword()</li>
+          <li>Configurar middleware Next.js para proteger todas las rutas</li>
+          <li>Gestión de sesión persistente con cookies SSR (seguro)</li>
+          <li>Logout con supabase.auth.signOut()</li>
+          <li>Perfil de usuario cargado desde tabla profiles</li>
+          <li>Soporte para múltiples agentes y roles (admin, agente, manager)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-item">
+      <div class="phase-badge">4</div>
+      <div class="phase-content">
+        <div class="phase-title">Integración Frontend con Backend Real</div>
+        <div class="phase-duration">3–5 días</div>
+        <ul class="phase-tasks">
+          <li>Reemplazar datos mock (data.ts) por llamadas a las API routes con React Query</li>
+          <li>Formularios de alta y edición funcionales con Zod + React Hook Form</li>
+          <li>Notificaciones en tiempo real usando Supabase Realtime channels</li>
+          <li>Upload de avatares y fotos de propiedades a Supabase Storage</li>
+          <li>Paginación y búsqueda conectadas a la base de datos real</li>
+          <li>Estado de carga y manejo de errores en toda la UI</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-item">
+      <div class="phase-badge">5</div>
+      <div class="phase-content">
+        <div class="phase-title">Despliegue a Producción</div>
+        <div class="phase-duration">1–2 días</div>
+        <ul class="phase-tasks">
+          <li>Deploy en Vercel (ya configurado con vercel.json)</li>
+          <li>Configurar variables de entorno en el dashboard de Vercel</li>
+          <li>Vincular dominio personalizado (.com) con SSL automático</li>
+          <li>Activar proyecto Supabase en modo producción</li>
+          <li>Habilitar backups automáticos diarios en Supabase</li>
+          <li>Pruebas end-to-end del sistema completo</li>
+          <li>Monitorización con Vercel Analytics y Supabase Logs</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 10 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 11: CRONOGRAMA -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">07</div>
+    <div class="section-info">
+      <h1>Cronograma y Hitos</h1>
+      <p>Estimación temporal del proyecto completo hasta producción</p>
+    </div>
+  </div>
+
+  <h2>Resumen de Fases</h2>
+
+  <div class="timeline">
+    <div class="timeline-row">
+      <div class="timeline-phase">Fase 1 — Supabase Setup</div>
+      <div class="timeline-bar-wrap">
+        <div class="timeline-bar" style="width:18%"></div>
+      </div>
+      <div class="timeline-days">2–3 días</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-phase">Fase 2 — API Routes</div>
+      <div class="timeline-bar-wrap">
+        <div class="timeline-bar" style="width:30%"></div>
+      </div>
+      <div class="timeline-days">3–5 días</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-phase">Fase 3 — Autenticación</div>
+      <div class="timeline-bar-wrap">
+        <div class="timeline-bar" style="width:12%"></div>
+      </div>
+      <div class="timeline-days">1–2 días</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-phase">Fase 4 — Integración UI</div>
+      <div class="timeline-bar-wrap">
+        <div class="timeline-bar" style="width:30%"></div>
+      </div>
+      <div class="timeline-days">3–5 días</div>
+    </div>
+    <div class="timeline-row">
+      <div class="timeline-phase">Fase 5 — Deploy</div>
+      <div class="timeline-bar-wrap">
+        <div class="timeline-bar" style="width:12%"></div>
+      </div>
+      <div class="timeline-days">1–2 días</div>
+    </div>
+    <div class="timeline-row" style="background:#0d9488;border-left-color:#f59e0b">
+      <div class="timeline-phase" style="color:white;font-size:11pt">🚀 TOTAL ESTIMADO</div>
+      <div class="timeline-bar-wrap">
+        <div class="timeline-bar" style="width:100%;background:linear-gradient(135deg,#f59e0b,#ef4444)"></div>
+      </div>
+      <div class="timeline-days" style="color:white;font-weight:700">10–17 días</div>
+    </div>
+  </div>
+
+  <h2>Hitos de Entrega</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Hito</th>
+        <th>Semana</th>
+        <th>Entregable</th>
+        <th>Verificación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>M1 — BD Lista</td>
+        <td>Semana 1</td>
+        <td>12 tablas en Supabase cloud</td>
+        <td>Insertar datos desde Supabase Studio</td>
+      </tr>
+      <tr>
+        <td>M2 — Backend Funcional</td>
+        <td>Semana 1–2</td>
+        <td>8 endpoints CRUD operativos</td>
+        <td>Postman / curl contra API routes</td>
+      </tr>
+      <tr>
+        <td>M3 — Auth Seguro</td>
+        <td>Semana 2</td>
+        <td>Login real, sesión persistente</td>
+        <td>Login/logout con email real</td>
+      </tr>
+      <tr>
+        <td>M4 — CRM Funcional</td>
+        <td>Semana 2–3</td>
+        <td>Todos los módulos con datos reales</td>
+        <td>CRUD completo en todos los módulos</td>
+      </tr>
+      <tr>
+        <td>M5 — En Producción</td>
+        <td>Semana 3</td>
+        <td>URL pública, dominio, SSL</td>
+        <td>Acceso desde navegador externo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-success">
+    <div class="callout-title">✅ El Frontend ya está terminado — esto acelera enormemente el proyecto</div>
+    <p>Normalmente el desarrollo de un CRM de esta envergadura llevaría 2-4 meses. Al tener el frontend 100% construido y funcional, el tiempo restante se reduce a conectar el backend y desplegar: <strong>10–17 días hábiles</strong>.</p>
+  </div>
+
+  <div class="footer">
+    <span>MAGNA CRM — Buyers Agents Premium</span>
+    <span>Página 11 de 12</span>
+  </div>
+</div>
+
+
+<!-- ============================================================ -->
+<!-- PÁGINA 12: COSTOS + PRÓXIMOS PASOS -->
+<!-- ============================================================ -->
+<div class="page page-break">
+  <div class="section-header">
+    <div class="section-number">08</div>
+    <div class="section-info">
+      <h1>Costos de Infraestructura</h1>
+      <p>Costos mensuales para operar el CRM en producción</p>
+    </div>
+  </div>
+
+  <h2>Desglose de Costos</h2>
+
+  <div class="cost-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Servicio</th>
+          <th>Plan</th>
+          <th>Incluye</th>
+          <th>Costo/mes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Supabase</td>
+          <td>Free</td>
+          <td>500MB base de datos, 50.000 usuarios auth, 1GB Storage</td>
+          <td><strong>$0</strong></td>
+        </tr>
+        <tr>
+          <td>Supabase</td>
+          <td>Pro (recomendado)</td>
+          <td>8GB base de datos, backups diarios, soporte prioritario</td>
+          <td><strong>$25</strong></td>
+        </tr>
+        <tr>
+          <td>Vercel</td>
+          <td>Hobby</td>
+          <td>Deploy ilimitado, SSL, edge network</td>
+          <td><strong>$0</strong></td>
+        </tr>
+        <tr>
+          <td>Vercel</td>
+          <td>Pro (recomendado)</td>
+          <td>Analytics avanzado, preview deploys, SLA 99.99%</td>
+          <td><strong>$20</strong></td>
+        </tr>
+        <tr>
+          <td>Dominio .com</td>
+          <td>Anual</td>
+          <td>magnabuyersagents.com (o similar)</td>
+          <td><strong>~$1</strong></td>
+        </tr>
+        <tr style="background:#f0fdf4">
+          <td><strong>TOTAL MÍNIMO</strong></td>
+          <td>Free tiers</td>
+          <td>Funcional para pruebas y clientes iniciales</td>
+          <td><strong>$0/mes</strong></td>
+        </tr>
+        <tr class="cost-total">
+          <td>TOTAL RECOMENDADO</td>
+          <td>Pro + Pro</td>
+          <td>Producción profesional con SLAs y backups</td>
+          <td>~$46/mes</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-title">ℹ️ Sin costos de servidor propio</div>
+    <p>Al usar Vercel (serverless) y Supabase (base de datos gestionada), no hay costos de servidor, mantenimiento de infraestructura, ni personal DevOps. Todo se gestiona desde paneles web intuitivos. El sistema escala automáticamente con el volumen de datos.</p>
+  </div>
+
+  <!-- PRÓXIMOS PASOS -->
+  <div class="section-header" style="margin-top:30px">
+    <div class="section-number">09</div>
+    <div class="section-info">
+      <h1>Próximos Pasos Inmediatos</h1>
+      <p>Acciones concretas para arrancar el proyecto</p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Acción</th>
+        <th>Responsable</th>
+        <th>Tiempo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Crear cuenta en supabase.com con el email corporativo</td>
+        <td>Cliente</td>
+        <td>15 min</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Crear nuevo proyecto Supabase con nombre "magna-crm"</td>
+        <td>Cliente / Dev</td>
+        <td>5 min</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Ejecutar SQL completo de este documento en el Editor SQL</td>
+        <td>Dev</td>
+        <td>10 min</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Instalar @supabase/supabase-js en el proyecto Next.js</td>
+        <td>Dev</td>
+        <td>5 min</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Crear cuenta Vercel y conectar repositorio GitHub</td>
+        <td>Dev</td>
+        <td>15 min</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Configurar variables de entorno Supabase en Vercel</td>
+        <td>Dev</td>
+        <td>10 min</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Primer deploy a producción</td>
+        <td>Dev</td>
+        <td>Automático</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:30px;background:linear-gradient(135deg,#0d9488,#0891b2);color:white;border-radius:12px;padding:20px 24px;text-align:center">
+    <div style="font-size:14pt;font-weight:800;margin-bottom:8px">🚀 MAGNA CRM — Listo para Producción en 10–17 días</div>
+    <div style="font-size:10pt;opacity:0.9">Frontend 100% completo · 10 módulos · Supabase PostgreSQL · Vercel · Coste desde $0/mes</div>
+  </div>
+
+  <div class="footer" style="margin-top:20px">
+    <span>MAGNA CRM — Buyers Agents Premium | Documento Confidencial</span>
+    <span>Mayo 2026 — Página 12 de 12</span>
+  </div>
+</div>
+
+</body>
+</html>

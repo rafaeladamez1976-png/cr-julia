@@ -73,14 +73,14 @@ export const INITIAL_PROPERTIES = [
 ]
 
 export const INITIAL_PIPELINE = [
-  { id: 101, name: 'Ricardo Darín', budget: '1.2M€ – 1.5M€', zone: 'Salamanca', stage: 'Primer Contacto', days: 2, score: 72 },
-  { id: 102, name: 'Elena García', budget: '700k€ – 850k€', zone: 'Retiro', stage: 'Primer Contacto', days: 5, score: 65 },
-  { id: 103, name: 'Ignacio Valdés', budget: '1.5M€ – 1.8M€', zone: 'Chamberí', stage: 'Cualificación', days: 1, score: 80 },
-  { id: 104, name: 'Marta Solano', budget: '900k€ – 1.1M€', zone: 'Justicia', stage: 'Búsqueda Activa', days: 8, score: 75 },
-  { id: 105, name: 'Beatriz Soler', budget: '1.1M€ – 1.3M€', zone: 'Eixample', stage: 'Visitas', days: 12, score: 82 },
-  { id: 106, name: 'Sofía Navarro', budget: '2.2M€ – 2.5M€', zone: 'Pozuelo', stage: 'Negociación', days: 3, score: 90 },
-  { id: 107, name: 'Marc Torrens', budget: '3.5M€ – 4M€', zone: 'Serrano', stage: 'Cerrado', days: 20, score: 98 },
-  { id: 108, name: 'Julia Roberts', budget: '5M€ – 6M€', zone: 'La Moraleja', stage: 'Cerrado', days: 2, score: 95 },
+  { id: 101, name: 'Ricardo Darín',  budget: '1.2M€ – 1.5M€', zone: 'Salamanca',  stage: 'Discovery',          days: 2,  score: 72 },
+  { id: 102, name: 'Elena García',   budget: '700k€ – 850k€',  zone: 'Retiro',     stage: 'Contacto',           days: 5,  score: 65 },
+  { id: 103, name: 'Ignacio Valdés', budget: '1.5M€ – 1.8M€', zone: 'Chamberí',   stage: 'Reunión',            days: 1,  score: 80 },
+  { id: 104, name: 'Marta Solano',   budget: '900k€ – 1.1M€', zone: 'Justicia',   stage: 'Mandatos',           days: 8,  score: 75 },
+  { id: 105, name: 'Beatriz Soler',  budget: '1.1M€ – 1.3M€', zone: 'Eixample',   stage: 'Property Assessment',days: 12, score: 82 },
+  { id: 106, name: 'Sofía Navarro',  budget: '2.2M€ – 2.5M€', zone: 'Pozuelo',    stage: 'Negociación',        days: 3,  score: 90 },
+  { id: 107, name: 'Marc Torrens',   budget: '3.5M€ – 4M€',   zone: 'Serrano',    stage: 'Compra',             days: 20, score: 98 },
+  { id: 108, name: 'Julia Roberts',  budget: '5M€ – 6M€',     zone: 'La Moraleja',stage: 'Compra',             days: 2,  score: 95 },
 ]
 
 export const INITIAL_TASKS = [
@@ -120,10 +120,31 @@ export const EMAIL_TEMPLATES = [
 ]
 
 export const PIPELINE_STAGES = [
-  'Primer Contacto',
-  'Cualificación',
-  'Búsqueda Activa',
-  'Visitas',
+  'Discovery',
+  'Contacto',
+  'Reunión',
+  'Propuesta',
+  'Mandatos',
+  'Property Assessment',
+  'Elección Inmueble',
   'Negociación',
-  'Cerrado'
+  'Compra',
+]
+
+export const INITIAL_AGENTES = [
+  { id: 1, nombre: 'Carlos Mendoza', email: 'cmendoza@magna.com', telefono: '+34 600 111 001', rol: 'Agente Senior', avatar: 'CM', activo: true, kpis: { llamadas: 24, reuniones: 8, propuestas: 5, inmuebles_contactados: 18, inmuebles_visitados: 12, inmuebles_presentados: 7, compras: 2 } },
+  { id: 2, nombre: 'Sonia Lara', email: 'slara@magna.com', telefono: '+34 600 111 002', rol: 'Agente Senior', avatar: 'SL', activo: true, kpis: { llamadas: 31, reuniones: 11, propuestas: 7, inmuebles_contactados: 22, inmuebles_visitados: 15, inmuebles_presentados: 9, compras: 3 } },
+  { id: 3, nombre: 'Rubén Torres', email: 'rtorres@magna.com', telefono: '+34 600 111 003', rol: 'Agente Junior', avatar: 'RT', activo: true, kpis: { llamadas: 18, reuniones: 5, propuestas: 3, inmuebles_contactados: 11, inmuebles_visitados: 7, inmuebles_presentados: 4, compras: 1 } },
+  { id: 4, nombre: 'Marta Gil', email: 'mgil@magna.com', telefono: '+34 600 111 004', rol: 'Agente Junior', avatar: 'MG', activo: true, kpis: { llamadas: 15, reuniones: 4, propuestas: 2, inmuebles_contactados: 9, inmuebles_visitados: 5, inmuebles_presentados: 3, compras: 0 } },
+  { id: 5, nombre: 'Andrés Vidal', email: 'avidal@magna.com', telefono: '+34 600 111 005', rol: 'Agente Senior', avatar: 'AV', activo: false, kpis: { llamadas: 0, reuniones: 0, propuestas: 0, inmuebles_contactados: 0, inmuebles_visitados: 0, inmuebles_presentados: 0, compras: 0 } },
+]
+
+export const INITIAL_PROVEEDORES = [
+  { id: 1, razon_social: 'Cumply AML Services', contacto: 'Patricia Ruiz', cargo: 'Directora Comercial', telefono: '+34 910 200 100', email: 'pruiz@cumply.es', cif: 'B12345678', servicio: 'AML', coste: 'Consultar', web: 'cumply.es', rrss: { ig: '', tiktok: '', fb: '', lkn: 'cumply-aml' } },
+  { id: 2, razon_social: 'Viajes Élite', contacto: 'Fernando Salas', cargo: 'Responsable VIP', telefono: '+34 912 300 200', email: 'fsalas@viajes-elite.com', cif: 'B23456789', servicio: 'Agentes de Viajes', coste: 'Variable', web: 'viajes-elite.com', rrss: { ig: 'viajeselite', tiktok: '', fb: 'viajeselite', lkn: '' } },
+  { id: 3, razon_social: 'Prestige Transfer', contacto: 'Luis Moreno', cargo: 'CEO', telefono: '+34 611 400 300', email: 'lmoreno@prestige.es', cif: 'B34567890', servicio: 'Transporte', coste: 'Por servicio', web: 'prestige.es', rrss: { ig: 'prestigetransfer', tiktok: 'prestigetransfer', fb: '', lkn: 'luis-moreno' } },
+  { id: 4, razon_social: 'Gran Hotel Suites', contacto: 'Ana Castellano', cargo: 'Jefa de Ventas', telefono: '+34 913 500 400', email: 'acastellano@granhotelsuites.com', cif: 'A45678901', servicio: 'Alojamiento', coste: 'Tarifa especial', web: 'granhotelsuites.com', rrss: { ig: 'granhotelsuites', tiktok: '', fb: 'granhotelsuites', lkn: '' } },
+  { id: 5, razon_social: 'CapitalRaíz Hipotecas', contacto: 'Javier Herrera', cargo: 'Broker Hipotecario', telefono: '+34 900 600 500', email: 'jherrera@capitalraiz.com', cif: 'B56789012', servicio: 'Financiación', coste: '% operación', web: 'capitalraiz.com', rrss: { ig: '', tiktok: '', fb: 'capitalraiz', lkn: 'javier-herrera' } },
+  { id: 6, razon_social: 'Estudio Reforma Premium', contacto: 'Claudia Vega', cargo: 'Directora Proyectos', telefono: '+34 914 700 600', email: 'cvega@reformapremium.es', cif: 'B67890123', servicio: 'Reformas', coste: 'Por proyecto', web: 'reformapremium.es', rrss: { ig: 'reformapremium', tiktok: 'reformapremium', fb: '', lkn: 'claudia-vega' } },
+  { id: 7, razon_social: 'Interiores Haute', contacto: 'Valentina Cruz', cargo: 'Interiorista Principal', telefono: '+34 915 800 700', email: 'vcruz@interioreshautte.com', cif: 'B78901234', servicio: 'Decoración', coste: 'Honorarios', web: 'interioreshautte.com', rrss: { ig: 'interioreshautte', tiktok: 'interioreshautte', fb: 'interioreshautte', lkn: '' } },
 ]
