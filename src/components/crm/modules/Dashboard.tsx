@@ -65,15 +65,15 @@ const upcomingTasks = [
 export function Dashboard() {
   const router = useRouter()
   return (
-    <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="p-4 md:p-6 lg:p-8 space-y-6 lg:space-y-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         <KPICard label="Clientes Activos"  value="34" trend="+3"   trendType="up"      icon={Users}    index={0} />
         <KPICard label="Visitas Este Mes"  value="12" trend="+12%" trendType="up"      icon={Home}     index={1} />
         <KPICard label="Oper. en Curso"    value="08" trend="0"    trendType="neutral" icon={Briefcase}index={2} />
         <KPICard label="Op. Cerradas"      value="05" trend="+2"   trendType="up"      icon={Award}    index={3} />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
         <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 p-5 lg:p-6">
           <div className="flex justify-between items-end mb-6">
             <div>
@@ -121,7 +121,7 @@ export function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 p-5 lg:p-6">
           <div className="flex justify-between items-end mb-6">
             <h2 className="text-lg font-semibold text-slate-800 dark:text-white">Actividad Reciente</h2>

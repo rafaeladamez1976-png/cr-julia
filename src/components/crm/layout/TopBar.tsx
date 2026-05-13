@@ -16,9 +16,9 @@ export function TopBar({ title, onMenuClick, notifications, onNotificationClick,
   const [showSearch, setShowSearch] = useState(false)
 
   return (
-    <header className="h-16 sm:h-20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between px-4 lg:px-8 fixed top-0 right-0 left-0 lg:left-64 z-20 transition-all">
+    <header className="h-16 md:h-20 bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between px-4 md:px-6 lg:px-8 fixed top-0 right-0 left-0 md:left-64 z-20 transition-all">
       <div className="flex items-center gap-3">
-        <button onClick={onMenuClick} className="p-2 text-slate-600 dark:text-slate-300 lg:hidden hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors">
+        <button onClick={onMenuClick} className="p-2 text-slate-600 dark:text-slate-300 md:hidden hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors">
           <Menu size={22} />
         </button>
         <div>
@@ -38,7 +38,7 @@ export function TopBar({ title, onMenuClick, notifications, onNotificationClick,
         <div className="hidden md:flex items-center relative group">
           <Search className="absolute left-3 text-slate-400 dark:text-slate-500" size={15} />
           <input type="text" placeholder="Buscar en todo el CRM..." value={globalSearch} onChange={(e) => setGlobalSearch(e.target.value)}
-            className="pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/50 rounded-xl text-xs focus:border-teal-500 dark:focus:border-teal-400 outline-none w-48 lg:w-64 transition-all focus:w-72 placeholder:text-slate-400 dark:placeholder:text-slate-500" />
+            className="pl-9 pr-4 py-2 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600/50 rounded-xl text-xs focus:border-teal-500 dark:focus:border-teal-400 outline-none w-48 md:w-56 lg:w-64 transition-all focus:w-72 placeholder:text-slate-400 dark:placeholder:text-slate-500" />
         </div>
 
         <button onClick={onNotificationClick} className="relative p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors">

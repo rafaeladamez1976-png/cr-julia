@@ -19,7 +19,7 @@ export function Sidebar({ isOpen, onClose, onLogout, darkMode, toggleDarkMode }:
   return (
     <>
       <div className={`w-64 bg-gradient-to-b from-slate-800 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-950 dark:to-black min-h-screen fixed left-0 top-0 flex flex-col z-40 shadow-2xl transition-transform duration-500 ease-in-out
-        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+        ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
         <div className="p-6 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center shadow-lg">
@@ -30,7 +30,7 @@ export function Sidebar({ isOpen, onClose, onLogout, darkMode, toggleDarkMode }:
               <p className="text-[9px] text-teal-400/70 uppercase tracking-[0.2em]">Buyers Agents</p>
             </div>
           </div>
-          <button onClick={onClose} className="p-2 text-slate-400 lg:hidden hover:text-white rounded-lg transition-colors">
+          <button onClick={onClose} className="p-2 text-slate-400 md:hidden hover:text-white rounded-lg transition-colors">
             <X size={18} />
           </button>
         </div>
@@ -76,7 +76,7 @@ export function Sidebar({ isOpen, onClose, onLogout, darkMode, toggleDarkMode }:
       <AnimatePresence>
         {isOpen && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={onClose} className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 lg:hidden" />
+            onClick={onClose} className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30 md:hidden" />
         )}
       </AnimatePresence>
     </>

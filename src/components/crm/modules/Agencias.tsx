@@ -8,7 +8,7 @@ type Collab = typeof INITIAL_COLLABORATORS[number]
 
 function AgenciaDetail({ collab, onBack }: { collab: Collab; onBack: () => void }) {
   return (
-    <div className="p-4 lg:p-8">
+    <div className="p-4 md:p-6 lg:p-8">
       <button onClick={onBack} className="flex items-center gap-2 text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors mb-6 group">
         <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
         <span className="text-xs font-semibold uppercase tracking-wider">Volver</span>
@@ -100,7 +100,7 @@ export function Agencias() {
   if (selected) return <AgenciaDetail collab={selected} onBack={() => setSelected(null)} />
 
   return (
-    <div className="p-4 lg:p-8">
+    <div className="p-4 md:p-6 lg:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 gap-4">
         <div>
           <h2 className="text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white">Red de Alianzas</h2>
@@ -178,3 +178,4 @@ export function Agencias() {
     </div>
   )
 }
+

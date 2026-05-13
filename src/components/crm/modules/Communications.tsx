@@ -47,7 +47,7 @@ export function Communications() {
   }
 
   return (
-    <div className="p-4 lg:p-8">
+    <div className="p-4 md:p-6 lg:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 gap-4">
         <div>
           <h2 className="text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white">Comunicaciones</h2>
@@ -248,3 +248,4 @@ export function Communications() {
     </div>
   )
 }
+

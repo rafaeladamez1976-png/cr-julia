@@ -22,7 +22,7 @@ export function Config() {
   ]
 
   return (
-    <div className="p-4 lg:p-8 space-y-8">
+    <div className="p-4 md:p-6 lg:p-8 space-y-8">
       <div>
         <h2 className="text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white">Configuración</h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold mt-1">Preferencias del Sistema</p>
@@ -57,3 +57,4 @@ export function Config() {
     </div>
   )
 }
+

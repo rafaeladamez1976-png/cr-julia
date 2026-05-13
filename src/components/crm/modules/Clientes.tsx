@@ -22,7 +22,7 @@ function ClientDetail({ client, onBack, onSave }: { client: Client; onBack: () =
   }
 
   return (
-    <div className="p-4 lg:p-8">
+    <div className="p-4 md:p-6 lg:p-8">
       <button onClick={onBack} className="flex items-center gap-2 text-slate-500 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400 transition-colors mb-6 group">
         <ChevronRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
         <span className="text-xs font-semibold uppercase tracking-wider">Volver</span>
@@ -215,7 +215,7 @@ export function Clientes() {
   )
 
   return (
-    <div className="p-4 lg:p-8">
+    <div className="p-4 md:p-6 lg:p-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 gap-4">
         <div>
           <h2 className="text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white">Portfolio de Clientes</h2>
@@ -245,8 +245,8 @@ export function Clientes() {
         </div>
       </div>
 
-      {/* Desktop table */}
-      <div className="hidden lg:block bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 overflow-hidden">
+      {/* Desktop/Tablet table */}
+      <div className="hidden md:block bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 overflow-hidden">
         <table className="w-full text-left">
           <thead>
             <tr className="border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
@@ -283,7 +283,7 @@ export function Clientes() {
       </div>
 
       {/* Mobile cards */}
-      <div className="lg:hidden grid grid-cols-1 gap-3">
+      <div className="md:hidden grid grid-cols-1 gap-4">
         {filteredClients.map(client => (
           <div key={client.id} onClick={() => setSelectedClient(client)}
             className="bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 active:scale-[0.98] cursor-pointer hover:border-teal-200 dark:hover:border-teal-700 transition-all">

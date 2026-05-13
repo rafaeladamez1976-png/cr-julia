@@ -33,7 +33,7 @@ export function Pipeline() {
   }
 
   return (
-    <div className="p-4 lg:p-8 h-full">
+    <div className="p-4 md:p-6 lg:p-8 h-full">
       <div className="mb-6">
         <h2 className="text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white">Flujo de Negocio</h2>
         <p className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold mt-1">
@@ -101,3 +101,4 @@ export function Pipeline() {
     </div>
   )
 }
+

@@ -58,7 +58,7 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
         toggleDarkMode={toggleDarkMode}
       />
 
-      <div className="lg:ml-64 min-h-screen flex flex-col">
+      <div className="md:ml-64 min-h-screen flex flex-col">
         <TopBar
           title={title}
           onMenuClick={() => setSidebarOpen(true)}
@@ -68,7 +68,7 @@ export default function CRMLayout({ children }: { children: React.ReactNode }) {
           setGlobalSearch={setGlobalSearch}
         />
 
-        <main className="pt-16 sm:pt-20 pb-20 lg:pb-4 flex-1">
+        <main className="pt-16 md:pt-20 pb-20 md:pb-4 flex-1">
           {children}
         </main>
       </div>

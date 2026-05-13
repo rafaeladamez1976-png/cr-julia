@@ -27,7 +27,7 @@ export function Privacidad() {
   }
 
   return (
-    <div className="p-4 lg:p-8 space-y-8 max-w-5xl">
+    <div className="p-4 md:p-6 lg:p-8 space-y-8 max-w-5xl">
       <div>
         <h2 className="text-2xl lg:text-3xl font-semibold text-slate-800 dark:text-white flex items-center gap-3">
           <Shield className="text-teal-600" size={28} />
