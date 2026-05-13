@@ -6,7 +6,7 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
 } from 'recharts'
 import { PRIORITY_COLORS } from '../constants'
-import type { ActiveTab } from '../store'
+import { useRouter } from 'next/navigation'
 
 function KPICard({ label, value, trend, trendType, icon: Icon, index }: {
   label: string; value: string; trend: string; trendType: string; icon: React.ComponentType<{ size?: number }>; index: number
@@ -62,7 +62,8 @@ const upcomingTasks = [
   { title: 'Enviar contrato arras',    priority: 'urgente', due: '08 May' },
 ]
 
-export function Dashboard({ onNavigate }: { onNavigate: (tab: ActiveTab) => void }) {
+export function Dashboard() {
+  const router = useRouter()
   return (
     <div className="p-4 lg:p-8 space-y-6 lg:space-y-8">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
@@ -124,7 +125,7 @@ export function Dashboard({ onNavigate }: { onNavigate: (tab: ActiveTab) => void
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 p-5 lg:p-6">
           <div className="flex justify-between items-end mb-6">
             <h2 className="text-lg font-semibold text-slate-800 dark:text-white">Actividad Reciente</h2>
-            <button onClick={() => onNavigate('calendario')} className="text-[10px] uppercase tracking-wider font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700">Ver todo</button>
+            <button onClick={() => router.push('/calendario')} className="text-[10px] uppercase tracking-wider font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700">Ver todo</button>
           </div>
           <div className="space-y-4">
             {activities.map((item, i) => (
@@ -145,7 +146,7 @@ export function Dashboard({ onNavigate }: { onNavigate: (tab: ActiveTab) => void
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 p-5 lg:p-6">
           <div className="flex justify-between items-end mb-6">
             <h2 className="text-lg font-semibold text-slate-800 dark:text-white">Tareas Pendientes</h2>
-            <button onClick={() => onNavigate('tareas')} className="text-[10px] uppercase tracking-wider font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700">Ver todas</button>
+            <button onClick={() => router.push('/tareas')} className="text-[10px] uppercase tracking-wider font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700">Ver todas</button>
           </div>
           <div className="space-y-3">
             {upcomingTasks.map((task, i) => (
@@ -163,7 +164,7 @@ export function Dashboard({ onNavigate }: { onNavigate: (tab: ActiveTab) => void
           <div className="mt-6 pt-6 border-t border-slate-100 dark:border-slate-700">
             <div className="flex justify-between items-center mb-3">
               <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">Pipeline (9 etapas)</span>
-              <button onClick={() => onNavigate('pipeline')} className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold hover:text-teal-700">Ver Pipeline →</button>
+              <button onClick={() => router.push('/pipeline')} className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold hover:text-teal-700">Ver Pipeline →</button>
             </div>
             <div className="flex gap-0.5 h-3 rounded-full overflow-hidden">
               {['bg-slate-300','bg-indigo-300','bg-cyan-300','bg-teal-300','bg-teal-400','bg-amber-400','bg-amber-500','bg-orange-400','bg-emerald-500'].map((c, i) => (

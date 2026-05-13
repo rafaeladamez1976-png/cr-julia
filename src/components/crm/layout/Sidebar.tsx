@@ -2,11 +2,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Sun, Moon, ExternalLink } from 'lucide-react'
 import { NAV_ITEMS } from '../constants'
-import type { ActiveTab } from '../store'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 interface SidebarProps {
-  activeTab: ActiveTab
-  setActiveTab: (t: ActiveTab) => void
   isOpen: boolean
   onClose: () => void
   onLogout: () => void
@@ -14,7 +13,9 @@ interface SidebarProps {
   toggleDarkMode: () => void
 }
 
-export function Sidebar({ activeTab, setActiveTab, isOpen, onClose, onLogout, darkMode, toggleDarkMode }: SidebarProps) {
+export function Sidebar({ isOpen, onClose, onLogout, darkMode, toggleDarkMode }: SidebarProps) {
+  const pathname = usePathname()
+
   return (
     <>
       <div className={`w-64 bg-gradient-to-b from-slate-800 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-950 dark:to-black min-h-screen fixed left-0 top-0 flex flex-col z-40 shadow-2xl transition-transform duration-500 ease-in-out
@@ -37,9 +38,9 @@ export function Sidebar({ activeTab, setActiveTab, isOpen, onClose, onLogout, da
         <nav className="flex-1 px-3 space-y-0.5 overflow-y-auto">
           {NAV_ITEMS.map((item) => {
             const Icon = item.icon
-            const isActive = activeTab === item.id
+            const isActive = pathname === `/${item.id}` || (pathname === '/' && item.id === 'dashboard')
             return (
-              <button key={item.id} onClick={() => { setActiveTab(item.id); onClose() }}
+              <Link key={item.id} href={`/${item.id}`} onClick={onClose}
                 className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all group text-sm ${
                   isActive
                     ? 'bg-teal-600/20 text-teal-300 shadow-sm'
@@ -48,7 +49,7 @@ export function Sidebar({ activeTab, setActiveTab, isOpen, onClose, onLogout, da
                 <Icon size={18} strokeWidth={isActive ? 2 : 1.5} className="transition-transform group-hover:scale-110" />
                 <span className={`text-xs tracking-wide font-medium ${isActive ? 'font-semibold' : ''}`}>{item.label}</span>
                 {isActive && <motion.div layoutId="sidebar-indicator" className="ml-auto w-1.5 h-1.5 rounded-full bg-teal-400" />}
-              </button>
+              </Link>
             )
           })}
         </nav>

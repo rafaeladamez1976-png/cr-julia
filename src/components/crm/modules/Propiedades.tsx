@@ -20,7 +20,10 @@ function PropiedadDetail({ prop, onBack }: { prop: Property; onBack: () => void 
         <div className="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700/50 p-6">
           <div className="flex justify-between items-start mb-6">
             <div>
-              <h3 className="text-xl lg:text-2xl font-semibold text-slate-800 dark:text-white">{prop.address}</h3>
+              <div className="flex items-center gap-2">
+                <h3 className="text-xl lg:text-2xl font-semibold text-slate-800 dark:text-white">{prop.address}</h3>
+                {prop.offMarket && <span className="px-2 py-0.5 bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 rounded text-[9px] font-bold uppercase tracking-wider">Off-Market</span>}
+              </div>
               <p className="text-xs text-slate-400 font-semibold mt-1">{prop.ref} · {prop.collab}</p>
             </div>
             <span className={`px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider ${STATUS_COLORS[prop.status]}`}>
@@ -93,11 +96,14 @@ function PropiedadDetail({ prop, onBack }: { prop: Property; onBack: () => void 
   )
 }
 
+import { useCRMStore } from '../store'
+
 const EMPTY_FORM = {
-  address: '', ref: '', type: 'Piso', price: '', area: '', rooms: '3', baths: '2', floor: '', collab: '', features: '',
+  address: '', ref: '', type: 'Piso', price: '', area: '', rooms: '3', baths: '2', floor: '', collab: '', features: '', offMarket: false,
 }
 
-export function Propiedades({ search = '' }: { search?: string }) {
+export function Propiedades() {
+  const { globalSearch: search } = useCRMStore()
   const [properties, setProperties] = useState(INITIAL_PROPERTIES)
   const [selected, setSelected] = useState<Property | null>(null)
   const [localSearch, setLocalSearch] = useState('')
@@ -131,7 +137,7 @@ export function Propiedades({ search = '' }: { search?: string }) {
       interested: 0,
       linkedClients: [],
       history: [{ date: new Date().toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' }), text: 'Propiedad añadida al portfolio.' }],
-      offMarket: false,
+      offMarket: form.offMarket,
     } as unknown as Property
     setProperties(prev => [...prev, nueva])
     setForm(EMPTY_FORM)
@@ -173,7 +179,10 @@ export function Propiedades({ search = '' }: { search?: string }) {
             {filtered.map(prop => (
               <tr key={prop.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-700/20 transition-colors cursor-pointer group" onClick={() => setSelected(prop)}>
                 <td className="px-6 py-4">
-                  <span className="text-sm font-semibold text-slate-800 dark:text-white">{prop.address}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-semibold text-slate-800 dark:text-white">{prop.address}</span>
+                    {prop.offMarket && <span className="px-1.5 py-0.5 bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 rounded text-[8px] font-bold uppercase tracking-wider">Off-Market</span>}
+                  </div>
                   <span className="block text-[9px] text-slate-400 font-semibold">{prop.ref}</span>
                 </td>
                 <td className="px-6 py-4 text-[10px] uppercase tracking-wider font-semibold text-slate-500">{prop.type}</td>
@@ -245,7 +254,7 @@ export function Propiedades({ search = '' }: { search?: string }) {
               ].map(f => (
                 <div key={f.key}>
                   <label className="text-[10px] uppercase tracking-[0.15em] font-semibold text-slate-500 dark:text-slate-400 mb-2 block">{f.label}</label>
-                  <input type="text" placeholder={f.placeholder} value={(form as Record<string, string>)[f.key]}
+                  <input type="text" placeholder={f.placeholder} value={(form as any)[f.key]}
                     onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
                     className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm focus:border-teal-500 outline-none placeholder:text-slate-300" />
                 </div>
@@ -276,6 +285,12 @@ export function Propiedades({ search = '' }: { search?: string }) {
                 <textarea value={form.features} onChange={e => setForm(prev => ({ ...prev, features: e.target.value }))}
                   rows={3} placeholder="Terraza, garaje, trastero, vistas..."
                   className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm focus:border-teal-500 outline-none resize-none placeholder:text-slate-300" />
+              </div>
+              <div className="flex items-center gap-3">
+                <input type="checkbox" id="off_market" checked={form.offMarket}
+                  onChange={e => setForm(prev => ({ ...prev, offMarket: e.target.checked }))}
+                  className="w-4 h-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500" />
+                <label htmlFor="off_market" className="text-sm text-slate-700 dark:text-slate-300 font-medium">Propiedad Off-Market (Privada)</label>
               </div>
             </div>
             <div className="p-6 border-t border-slate-100 dark:border-slate-700 flex gap-3 sticky bottom-0 bg-white dark:bg-slate-800">

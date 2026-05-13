@@ -1,9 +1,22 @@
 import type { LucideIcon } from 'lucide-react'
 import {
   BarChart3, Users, UserPlus, Home, LayoutList, Settings,
-  Calendar, TrendingUp, CheckSquare, MessageSquare, Briefcase,
+  Calendar, TrendingUp, CheckSquare, MessageSquare, Briefcase, Shield,
 } from 'lucide-react'
-import type { ActiveTab } from './store'
+export type ActiveTab =
+  | 'dashboard'
+  | 'agentes'
+  | 'agencias'
+  | 'clientes'
+  | 'propiedades'
+  | 'pipeline'
+  | 'proveedores'
+  | 'tareas'
+  | 'calendario'
+  | 'analiticas'
+  | 'comunicaciones'
+  | 'configuracion'
+  | 'privacidad'
 
 export type NavItem = { id: ActiveTab; label: string; icon: LucideIcon }
 
@@ -20,6 +33,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'analiticas',     label: 'Analíticas',      icon: TrendingUp },
   { id: 'comunicaciones', label: 'Comunicaciones',  icon: MessageSquare },
   { id: 'configuracion',  label: 'Configuración',   icon: Settings },
+  { id: 'privacidad',     label: 'Privacidad DPO',  icon: Shield },
 ]
 
 export const BOTTOM_NAV: NavItem[] = [
@@ -43,6 +57,7 @@ export const PAGE_TITLES: Record<ActiveTab, string> = {
   analiticas:     'Analíticas',
   comunicaciones: 'Comunicaciones',
   configuracion:  'Configuración',
+  privacidad:     'Privacidad DPO',
 }
 
 export const STATUS_COLORS: Record<string, string> = {

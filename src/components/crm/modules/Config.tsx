@@ -1,11 +1,10 @@
 'use client'
 import { ChevronRight, User, Shield, Bell, Moon, Sun, Globe, Palette, ExternalLink } from 'lucide-react'
 
-export function Config({ darkMode, toggleDarkMode, onLogout }: {
-  darkMode: boolean
-  toggleDarkMode: () => void
-  onLogout: () => void
-}) {
+import { useCRMStore } from '../store'
+
+export function Config() {
+  const { darkMode, toggleDarkMode, logout } = useCRMStore()
   const settingsSections = [
     { title: 'Perfil', items: [
       { icon: User,      label: 'Mi Cuenta',   desc: 'Datos personales y credenciales',   action: undefined,      danger: false },
@@ -18,7 +17,7 @@ export function Config({ darkMode, toggleDarkMode, onLogout }: {
       { icon: Palette,   label: 'Personalización', desc: 'Esquemas de color y estilo',     action: undefined,      danger: false },
     ]},
     { title: 'Sesión', items: [
-      { icon: ExternalLink, label: 'Cerrar Sesión', desc: 'Finalizar sesión de forma segura', action: onLogout,    danger: true },
+      { icon: ExternalLink, label: 'Cerrar Sesión', desc: 'Finalizar sesión de forma segura', action: logout,    danger: true },
     ]},
   ]
 

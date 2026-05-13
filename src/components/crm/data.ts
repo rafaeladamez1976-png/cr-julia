@@ -1,23 +1,23 @@
 export const INITIAL_CLIENTS = [
-  { id: 1, name: 'Ignacio Valdés', phone: '+34 612 345 678', email: 'ivaldes@email.com', budget: '1.2M - 1.5M €', zone: 'Salamanca, Retiro', status: 'Activo', date: '02 Abr 2026', origin: 'Referido', type: 'Piso', size: '150+', score: 92, notes: 'Busca techos altos y molduras originales.', avatar: 'IV', interactions: [
+  { id: 1, name: 'Ignacio Valdés', phone: '+34 612 345 678', email: 'ivaldes@email.com', budget: '1.2M - 1.5M €', zone: 'Salamanca, Retiro', status: 'Activo', date: '02 Abr 2026', origin: 'Referido', type: 'Piso', size: '150+', score: 92, notes: 'Busca techos altos y molduras originales.', avatar: 'IV', estado_aml: 'Aprobado', representante_legal: '—', interactions: [
     { type: 'phone', date: '08 Abr', text: 'Confirmación de interés en C/ Serrano 45.' },
     { type: 'message', date: '05 Abr', text: 'Enviado dossier de propiedades en Retiro.' },
     { type: 'meeting', date: '02 Abr', text: 'Reunión inicial de cualificación.' }
   ]},
-  { id: 2, name: 'Beatriz Soler', phone: '+34 688 900 122', email: 'bsoler@email.com', budget: '850k - 1.1M €', zone: 'Chamberí, Justicia', status: 'Templado', date: '28 Mar 2026', origin: 'Web', type: 'Ático', size: '100+', score: 74, notes: 'Prioriza terraza con vistas.', avatar: 'BS', interactions: [
+  { id: 2, name: 'Beatriz Soler', phone: '+34 688 900 122', email: 'bsoler@email.com', budget: '850k - 1.1M €', zone: 'Chamberí, Justicia', status: 'Templado', date: '28 Mar 2026', origin: 'Web', type: 'Ático', size: '100+', score: 74, notes: 'Prioriza terraza con vistas.', avatar: 'BS', estado_aml: 'Pendiente', representante_legal: 'Asesoría Jurídica S.L.', interactions: [
     { type: 'message', date: '01 Abr', text: 'Consulta sobre gastos de comunidad.' },
     { type: 'phone', date: '28 Mar', text: 'Llamada de prospección.' }
   ]},
-  { id: 3, name: 'Marc Torrens', phone: '+34 655 433 211', email: 'mtorrens@email.com', budget: '2.5M - 3.2M €', zone: 'La Moraleja', status: 'Cerrado', date: '15 Feb 2026', origin: 'Evento', type: 'Chalet', size: '400+', score: 98, notes: 'Comprador recurrente.', avatar: 'MT', interactions: [
+  { id: 3, name: 'Marc Torrens', phone: '+34 655 433 211', email: 'mtorrens@email.com', budget: '2.5M - 3.2M €', zone: 'La Moraleja', status: 'Cerrado', date: '15 Feb 2026', origin: 'Evento', type: 'Chalet', size: '400+', score: 98, notes: 'Comprador recurrente.', avatar: 'MT', estado_aml: 'Aprobado', representante_legal: '—', interactions: [
     { type: 'meeting', date: '15 Feb', text: 'Firma de contrato de compraventa.' }
   ]},
-  { id: 4, name: 'Elena García', phone: '+34 600 111 222', email: 'e.garcia@email.com', budget: '600k - 750k €', zone: 'Arganzuela, Lavapiés', status: 'Activo', date: '05 Abr 2026', origin: 'Redes Sociales', type: 'Piso', size: '80+', score: 65, notes: 'Busca inversión para alquiler.', avatar: 'EG', interactions: [
+  { id: 4, name: 'Elena García', phone: '+34 600 111 222', email: 'e.garcia@email.com', budget: '600k - 750k €', zone: 'Arganzuela, Lavapiés', status: 'Activo', date: '05 Abr 2026', origin: 'Redes Sociales', type: 'Piso', size: '80+', score: 65, notes: 'Busca inversión para alquiler.', avatar: 'EG', estado_aml: 'En Revisión', representante_legal: '—', interactions: [
     { type: 'phone', date: '07 Abr', text: 'Interés en obra nueva zona Delicias.' }
   ]},
-  { id: 5, name: 'Jorge Méndez', phone: '+34 622 777 888', email: 'j.mendez@email.com', budget: '450k - 500k €', zone: 'Carabanchel, Latina', status: 'Dormido', date: '10 Ene 2026', origin: 'Web', type: 'Piso', size: '70+', score: 35, notes: 'Pausó búsqueda por motivos personales.', avatar: 'JM', interactions: [
+  { id: 5, name: 'Jorge Méndez', phone: '+34 622 777 888', email: 'j.mendez@email.com', budget: '450k - 500k €', zone: 'Carabanchel, Latina', status: 'Dormido', date: '10 Ene 2026', origin: 'Web', type: 'Piso', size: '70+', score: 35, notes: 'Pausó búsqueda por motivos personales.', avatar: 'JM', estado_aml: 'Aprobado', representante_legal: '—', interactions: [
     { type: 'message', date: '20 Ene', text: 'Informa que no visitará en el primer trimestre.' }
   ]},
-  { id: 6, name: 'Sofía Navarro', phone: '+34 699 555 444', email: 'snavarro@email.com', budget: '1.8M - 2.2M €', zone: 'Puerta de Hierro', status: 'Activo', date: '07 Abr 2026', origin: 'Referido', type: 'Casa', size: '250+', score: 88, notes: 'Necesita jardín privado y seguridad 24h.', avatar: 'SN', interactions: [
+  { id: 6, name: 'Sofía Navarro', phone: '+34 699 555 444', email: 'snavarro@email.com', budget: '1.8M - 2.2M €', zone: 'Puerta de Hierro', status: 'Activo', date: '07 Abr 2026', origin: 'Referido', type: 'Casa', size: '250+', score: 88, notes: 'Necesita jardín privado y seguridad 24h.', avatar: 'SN', estado_aml: 'Aprobado', representante_legal: 'Bufete Navarro & Asociados', interactions: [
     { type: 'meeting', date: '08 Abr', text: 'Primera visita a parcela en Peñalar.' }
   ]},
 ]
@@ -54,20 +54,20 @@ export const INITIAL_COLLABORATORS = [
 ]
 
 export const INITIAL_PROPERTIES = [
-  { id: 1, address: 'Calle de Serrano 45, 4º Izq', ref: 'MAG-SER45', type: 'Piso', price: '2.450.000 €', collab: 'Inmobiliaria Goya', interested: 3, status: 'Disponible', area: '175 m²', rooms: 3, baths: 3, floor: '4º', features: 'Vistas al Retiro, techos altos, portero físico.', history: [
+  { id: 1, address: 'Calle de Serrano 45, 4º Izq', ref: 'MAG-SER45', type: 'Piso', price: '2.450.000 €', collab: 'Inmobiliaria Goya', interested: 3, status: 'Disponible', area: '175 m²', rooms: 3, baths: 3, floor: '4º', features: 'Vistas al Retiro, techos altos, portero físico.', offMarket: true, history: [
     { date: '05 Abr 2026', text: 'Propiedad dada de alta en colaboración.' },
     { date: '08 Abr 2026', text: 'Visita realizada por Cliente Valdés.' }
   ], linkedClients: ['Ignacio Valdés', 'Sofía Navarro'] },
-  { id: 2, address: 'Don Ramón de la Cruz 12', ref: 'MAG-DRC12', type: 'Piso', price: '1.180.000 €', collab: 'Directo Prop.', interested: 5, status: 'Reservada', area: '120 m²', rooms: 2, baths: 2, floor: '2º', features: 'Totalmente reformado, mucha luz, balcón a la calle.', history: [
+  { id: 2, address: 'Don Ramón de la Cruz 12', ref: 'MAG-DRC12', type: 'Piso', price: '1.180.000 €', collab: 'Directo Prop.', interested: 5, status: 'Reservada', area: '120 m²', rooms: 2, baths: 2, floor: '2º', features: 'Totalmente reformado, mucha luz, balcón a la calle.', offMarket: false, history: [
     { date: '20 Mar 2026', text: 'Señalizada por Beatriz Soler.' }
   ], linkedClients: ['Beatriz Soler'] },
-  { id: 3, address: 'Paseo de la Castellana 112', ref: 'MAG-CAS112', type: 'Ático', price: '4.200.000 €', collab: 'Barcelona Luxury', interested: 2, status: 'Disponible', area: '310 m²', rooms: 4, baths: 4, floor: 'Ático', features: 'Terraza perimetral de 80m², piscina privada.', history: [
+  { id: 3, address: 'Paseo de la Castellana 112', ref: 'MAG-CAS112', type: 'Ático', price: '4.200.000 €', collab: 'Barcelona Luxury', interested: 2, status: 'Disponible', area: '310 m²', rooms: 4, baths: 4, floor: 'Ático', features: 'Terraza perimetral de 80m², piscina privada.', offMarket: true, history: [
     { date: '12 Feb 2026', text: 'Bajada de precio de 4.5M a 4.2M.' }
   ], linkedClients: ['Marc Torrens'] },
-  { id: 4, address: 'VILLA LA ZAGALETA', ref: 'MAG-ZAG10', type: 'Chalet', price: '12.500.000 €', collab: 'Marbella Estates', interested: 1, status: 'Vendida', area: '1100 m²', rooms: 7, baths: 8, floor: 'Triple', features: 'Seguridad máxima, garaje para 10 coches.', history: [
+  { id: 4, address: 'VILLA LA ZAGALETA', ref: 'MAG-ZAG10', type: 'Chalet', price: '12.500.000 €', collab: 'Marbella Estates', interested: 1, status: 'Vendida', area: '1100 m²', rooms: 7, baths: 8, floor: 'Triple', features: 'Seguridad máxima, garaje para 10 coches.', offMarket: false, history: [
     { date: '05 Ene 2026', text: 'Operación cerrada con éxito.' }
   ], linkedClients: [] },
-  { id: 5, address: 'Calle Mayor 10, Local', ref: 'MAG-COM10', type: 'Local', price: '890.000 €', collab: 'Levante Proy.', interested: 4, status: 'Disponible', area: '200 m²', rooms: 0, baths: 1, floor: 'Bajo', features: 'Salida de humos instalada, gran escaparate.', history: [
+  { id: 5, address: 'Calle Mayor 10, Local', ref: 'MAG-COM10', type: 'Local', price: '890.000 €', collab: 'Levante Proy.', interested: 4, status: 'Disponible', area: '200 m²', rooms: 0, baths: 1, floor: 'Bajo', features: 'Salida de humos instalada, gran escaparate.', offMarket: false, history: [
     { date: '10 Abr 2026', text: 'Solicitud de licencia de terraza enviada.' }
   ], linkedClients: ['Elena García'] },
 ]

@@ -197,20 +197,23 @@ MVP fase 1: **agentes → agencias → clientes**. Después: **proveedores**.
 
 **Hecho**:
 
-- UI completa 10 módulos en `src/components/crm/CRMApp.tsx` (1648 líneas, monolítico, mock data).
+- UI completa 11 módulos (Dashboard, Agentes, Agencias, Clientes, Propiedades, Pipeline, Proveedores, Tareas, Calendario, Analíticas, Configuración).
+- **Módulo de Privacidad DPO (RGPD)** implementado a nivel UI (exportación, anonimización, olvido).
+- **Refactorización completada**: Monolito `CRMApp.tsx` eliminado. Estructura de rutas de Next.js App Router implementada (`app/(crm)/*`).
 - 48 componentes shadcn en `src/components/ui/`.
-- Mock data en `src/components/crm/data.ts`.
-- Zustand store básico en `src/components/crm/store.ts` (a tipar).
+- Mock data en `src/components/crm/data.ts` (con campos de AML, Off-Market y Rep Legal).
+- Zustand store básico en `src/components/crm/store.ts`.
+- Tipado estricto pasando la compilación (`npm run typecheck`).
 - Deploy Vercel funcionando con `vercel.json`.
 
 **Pendiente** (ver plan completo en `C:\Users\user\.claude\plans\quiero-que-segun-la-tender-hanrahan.md`):
 
-- Fase 0 (higiene): scripts portables, `.env.example`, quitar `ignoreBuildErrors`, eliminar Prisma/SQLite, tipar store.
+- Fase 0 (higiene): scripts portables, `.env.example`, quitar `ignoreBuildErrors`, eliminar Prisma/SQLite.
 - Fase 1 (Supabase): 14 tablas + RLS + triggers de auditoría + backups.
 - Fase 2 (Auth): Google SSO + MFA + middleware.
-- Fase 3 (Refactor + módulos): partir monolito en rutas App Router, API CRUD, pipeline 9 etapas.
+- Fase 3 (Módulos Backend): Conectar UI refactorizada a la API CRUD y lógica real.
 - Fase 4 (Integraciones): Google Workspace, Slack, Gemini, Zapier, Notion.
-- Fase 5 (Cumplimiento + deploy): RGPD endpoints, CSP, Sentry, RUNBOOK, smoke tests, producción.
+- Fase 5 (Cumplimiento + deploy): RGPD endpoints backend, CSP, Sentry, RUNBOOK, smoke tests, producción.
 
 ---
 

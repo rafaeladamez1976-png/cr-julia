@@ -109,6 +109,8 @@ function ClientDetail({ client, onBack, onSave }: { client: Client; onBack: () =
                 { label: 'Superficie',  value: `${edited.size} m²` },
                 { label: 'Origen',      value: edited.origin },
                 { label: 'Zonas',       value: edited.zone },
+                { label: 'Estado AML',  value: edited.estado_aml },
+                { label: 'Rep. Legal',  value: edited.representante_legal },
               ].map(item => (
                 <div key={item.label}>
                   <p className="text-[9px] uppercase tracking-[0.2em] font-semibold text-slate-400 dark:text-slate-500 mb-1">{item.label}</p>
@@ -144,13 +146,17 @@ function ClientDetail({ client, onBack, onSave }: { client: Client; onBack: () =
   )
 }
 
+import { useCRMStore } from '../store'
+
 const EMPTY_FORM = {
   nombre: '', email: '', telefono: '', nif: '', domicilio: '', web: '',
   presupuestoMin: '', presupuestoMax: '', idioma: 'Español', origen: 'Web',
   identidadProtegida: false, rgpdConsent: false, rgpdMarketing: false, notas: '',
+  estadoAML: 'Pendiente', representanteLegal: ''
 }
 
-export function Clientes({ search }: { search: string }) {
+export function Clientes() {
+  const { globalSearch: search } = useCRMStore()
   const [clients, setClients] = useState(INITIAL_CLIENTS)
   const [selectedClient, setSelectedClient] = useState<Client | null>(null)
   const [localSearch, setLocalSearch] = useState('')
@@ -184,6 +190,8 @@ export function Clientes({ search }: { search: string }) {
       status: 'Activo' as const,
       score: 0,
       origin: form.origen,
+      estado_aml: form.estadoAML,
+      representante_legal: form.representanteLegal || '—',
       date: new Date().toLocaleDateString('es-ES', { month: 'short', year: 'numeric' }),
       notes: form.notas || 'Sin notas',
       interactions: [],
@@ -353,6 +361,21 @@ export function Clientes({ search }: { search: string }) {
                     className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm outline-none text-slate-700 dark:text-slate-300">
                     <option>Referido</option><option>Web</option><option>Redes Sociales</option><option>Evento</option>
                   </select>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-[10px] uppercase tracking-[0.15em] font-semibold text-slate-500 dark:text-slate-400 mb-2 block">Estado AML</label>
+                  <select value={form.estadoAML} onChange={e => setForm(prev => ({ ...prev, estadoAML: e.target.value }))}
+                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm outline-none text-slate-700 dark:text-slate-300">
+                    <option>Pendiente</option><option>En Revisión</option><option>Aprobado</option><option>Rechazado</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-[10px] uppercase tracking-[0.15em] font-semibold text-slate-500 dark:text-slate-400 mb-2 block">Rep. Legal</label>
+                  <input type="text" placeholder="Abogado / Empresa" value={form.representanteLegal}
+                    onChange={e => setForm(prev => ({ ...prev, representanteLegal: e.target.value }))}
+                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-xl text-sm focus:border-teal-500 outline-none placeholder:text-slate-300" />
                 </div>
               </div>
               <div className="flex items-center gap-3">
